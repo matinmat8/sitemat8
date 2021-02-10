@@ -1,0 +1,47 @@
+<a href="{% url 'article:index' %}" style="color:black"><h1>SiteMat8</h1></a>
+<h1>{{ post.title }}</h1>
+<h4>{{ post.PostBody }}</h4>
+
+<p style="color:blue">Tags: {{ post.tags.all|join:", " }}</p>
+
+<p>
+    <a href="{% url 'article:post_share' post.id %}">
+        share this post
+    </a>
+</p>
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://CodingForEntrepreneurs.com/">
+Share on Facebook
+</a>
+
+<a href="https://twitter.com/home?status=I'm%20going%20to%20learn%20to%20Code...%20Come%20build%20an%20web%20apsp%20with%20me!%20%23CFE%20and%20@justinmitchel%20http://codingforentrepreneurs.com/">
+Share on Twitter
+</a>
+<br>
+<a href='https://plus.google.com/share?url=http://codingforentrepreneurs.com'>Share on Google+</a>
+<br>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://swiftforentrepreneurs.com/&title=Be%20first%20%7C%20Join%20Swift%20for%20Entrepreneurs&summary=Swift%20for%20Entrepreneurs%20is%20a%20project-based%20programming%20course%20for%20non-technical%20founders.%20We'll%20learn%20how%20to%20build%20iOS%20apps%20from%20scratch%20using%20Apple's%20new%20programming%20language:%20Swift.%20Be%20first%20and%20learn%20with%20me!&source=http://swiftforentrepreneurs.com/">
+Share on Linkedin
+</a>
+<br>
+<a href="http://www.reddit.com/submit?url=http://swiftforentrepreneurs.com/&title=Unlock%20to%20Learn%20Swift%20for%20Free!%20By%20Swift%20for%20Entrepreneurs.%20Made%20for%20Non%20Techincals.">Share on Reddit</a>
+{% for comment in comments %}
+    <p>{{ comment.name }}</p>
+    <p>{{ comment.email }}</p>
+    <p>{{ comment.body }}</p>
+{% endfor %}
+
+{% if new_comment %}
+    <div>
+        <p>Your comment is awaiting moderation</p>
+{% else %}
+<h3>
+    leave a comment
+</h3>
+<form method="post" >
+    {{ form.as_p }}
+    {% csrf_token %}
+              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+</form>
+{% endif %}
+        </div>

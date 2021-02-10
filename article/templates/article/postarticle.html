@@ -1,0 +1,50 @@
+<style>
+    body{
+    background-color: #e1e1e1;
+    }
+    div{
+    background-color: fff;
+    box-shadow: 2px 1px #888888;
+    height: auto;
+        }
+</style>
+
+<a href="{% url 'article:index' %}" style="color:black"><h1>SiteMat8</h1></a>
+<br>
+{% for post in Post %}
+<a href="{% url 'article:post_detail' id=post.id %}">
+    <div>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.PostBody }}</p>
+    </div>
+</a>
+    <hr>
+    <br>
+{% endfor %}
+
+
+{% if search %}
+    <h1>posts {{ search }}</h1>
+    <h3>
+        {% with results.count as total_results %}
+            Found {{ total_results }} result{{ total_results|pluralize }}
+        {% endwith %}
+    </h3>
+    {% for post in results %}
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><hr><br>
+    {% comment %}
+        {{ # post.body|markdown|truncatewords_html:15 # }}
+    {% endcomment %}
+        {{ post.body }}
+    {% empty %}
+        <p>Nothing found</p>
+    {% endfor %}
+    <p><a href="{% url 'article:post_search' %}">again search</a></p>
+    {% else %}
+
+        <form method="get">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Search">
+        </form>
+    {% endif %}
