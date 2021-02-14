@@ -11,17 +11,6 @@
 
 <a href="{% url 'article:index' %}" style="color:black"><h1>SiteMat8</h1></a>
 <br>
-{% for post in Post %}
-<a href="{% url 'article:post_detail' id=post.id %}">
-    <div>
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.PostBody }}</p>
-    </div>
-</a>
-    <hr>
-    <br>
-{% endfor %}
-
 
 {% if search %}
     <h1>posts {{ search }}</h1>
@@ -48,3 +37,18 @@
             <input type="submit" value="Search">
         </form>
     {% endif %}
+
+
+
+{% for post in Post %}
+<a href="{% url 'article:post_detail' id=post.id %}">
+    <div>
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.PostBody }}</p>
+    </div>
+</a>
+    <hr>
+    <br>
+{% endfor %}
+
+

@@ -4,6 +4,7 @@ from .models import PostArticle, PostComment
 from .forms import CommentForm, PostSearch, share_post_email
 from django.contrib.postgres.search import SearchRank, SearchVector, SearchQuery
 from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
 
 
 def index(requsts):
@@ -24,7 +25,6 @@ def Post_Article_Show_search(requsts, search=None):
 
     context = {'Post': Post, 'form': form, 'search': search, 'results': results}
     return render(requsts, "article/postarticle.html", context)
-
 
 
 def Post_detail(requsts, id=None):
@@ -67,3 +67,16 @@ def post_share(requsts, id):
             sent = True
 
     return render(requsts, 'article/share.html', {'post': post, 'form': form, 'sent': sent})
+
+
+def upload(requsts):
+    if requsts.method == 'POST':
+        uploaded_file = requsts.FILES['file']
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
+
+    return render(requsts, 'article/upload.html')
+
+
+def register(requsts):
+    return render(requsts, 'article/registration.html')

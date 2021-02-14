@@ -50,4 +50,5 @@ def activate(request, uidb64, token):
         login(request, user)
         return redirect('home')
     else:
-        return render(request, 'account_activation_invalid.html')
+        context = {'uidb64': uidb64, 'token': token}
+        return render(request, 'account_activation_invalid.html', context)
