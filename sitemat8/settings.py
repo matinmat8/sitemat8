@@ -58,7 +58,8 @@ ROOT_URLCONF = 'sitemat8.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'article/templates', 'authentication/templates'],
+        'DIRS': [BASE_DIR / 'authentication/templates',
+                 BASE_DIR / 'article/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

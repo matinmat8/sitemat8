@@ -6,6 +6,6 @@ app_name = 'authentication'
 
 
 urlpatterns = [
-    path('home/', views.mat, name='mat'),
+    path('register/home/', views.mat, name='mat'),
     path('register/', views.index, name='index'),
 ]
