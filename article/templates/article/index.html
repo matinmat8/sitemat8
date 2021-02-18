@@ -17,9 +17,16 @@
 </head>
 <body>
     <h1>SiteMat8</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome {{ user }} to sitemat8!!!</p>
+    <p>If you want click here <a href="{% url 'logout' %}">logout</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        <a style="flat:left; margin: 0 20px 0 0; display:block;" href="{% url 'authentication:index' %}"> signup </a></p>
+
+    {% endif %}
     <br>
     <hr>
-    <a style="flat:left; margin: 0 20px 0 0; display:block;" href="{% url 'authentication:index' %}"> signup </a></p>
     <a style=" display:block; " href="{% url 'article:postarticle' %}"> postarticle </a>
 </body>
 </html>
