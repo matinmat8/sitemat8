@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from .models import PostArticle, PostComment
 from .forms import CommentForm, PostSearch, share_post_email
@@ -8,7 +10,7 @@ from django.core.files.storage import FileSystemStorage
 
 
 def index(requsts):
-    return render(requsts, 'article/index.html')
+    return render(requsts, 'article/base.html')
 
 
 def Post_Article_Show_search(requsts, search=None):

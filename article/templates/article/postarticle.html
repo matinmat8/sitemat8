@@ -1,3 +1,5 @@
+{% extends "article/base.html" %}
+
 <style>
     body{
     background-color: #e1e1e1;
@@ -8,10 +10,10 @@
     height: auto;
         }
 </style>
+{% block title %}<title>post_article</title>{% endblock %}
 
-<a href="{% url 'article:index' %}" style="color:black"><h1>SiteMat8</h1></a>
 <br>
-
+{% block content %}
 {% if search %}
     <h1>posts {{ search }}</h1>
     <h3>
@@ -30,16 +32,26 @@
     {% endfor %}
     <p><a href="{% url 'article:post_search' %}">again search</a></p>
     {% else %}
-
+    <div class="form-group">
         <form method="get">
             {{ form.as_p }}
             {% csrf_token %}
-            <input type="submit" value="Search">
+            <!--<label for="exampleInputSearch">Search</label>-->
+            <!--<input type="submit" value="Search">-->
         </form>
+    </div>
+
+<!--<form>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Search</label>
+    <input type="search" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>-->
     {% endif %}
 
 
-
+{% block page_header %}
 {% for post in Post %}
 <a href="{% url 'article:post_detail' id=post.id %}">
     <div>
@@ -50,5 +62,8 @@
     <hr>
     <br>
 {% endfor %}
+{% endblock page_header %}
+{% endblock %}
+
 
 

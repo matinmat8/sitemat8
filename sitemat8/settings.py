@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'taggit',
     'File',
     'authentication',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'sitemat8.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'login.html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +138,4 @@ EMAIL_HOST = 'localhost'
 
 LOGIN_REDIRECT_URL = 'article:index'
 LOGOUT_REDIRECT_URL = 'article:index'
+UPLOAD_REDIRECT_URL = 'article:index'

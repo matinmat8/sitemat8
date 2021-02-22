@@ -5,5 +5,5 @@ app_name = "File"
 
 
 urlpatterns = [
-    path('test/', views.Upload, name="Upload")
+    path('upload/', views.Upload, name="Upload")
 ]

@@ -6,7 +6,7 @@ import re
 def anchor_fixer(anchor, amount):
     def fix_line(line):
         trimmed_line = line.strip()
-        if not trimmed_line.startswith(r"pos base [") and not trimmed_line.endswith(" mark @"+anchor+";"):
+        if not trimmed_line.startswith(r"pos base.html [") and not trimmed_line.endswith(" mark @"+anchor+";"):
             return line
 
         found_strings = re.findall(r'<anchor [0-9]+ [0-9]+', trimmed_line)
