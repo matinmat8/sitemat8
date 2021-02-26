@@ -3,8 +3,14 @@ from django.conf.urls.static import static
 from django.urls import path
 from . import views
 from .feeds import LatestPostsFeed
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import PostSitemap
 
 app_name = 'article'
+
+sitemaps = {
+    'posts': PostSitemap
+}
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -14,7 +20,9 @@ urlpatterns = [
          views.post_share, name='post_share'),
     path('upload/', views.upload, name='upload'),
     path('SignUp/', views.register, name='register'),
-    path('feed/', LatestPostsFeed(), name='Post_Feed')
+    path('feed/', LatestPostsFeed(), name='Post_Feed'),
+    path('sitemaps.xml', sitemap, {'sitemaps': sitemaps},
+         name=' django.contrib.sitemaps.views.sitemap'),
 ]
 
 if settings.DEBUG:
