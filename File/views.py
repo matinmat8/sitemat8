@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Upload_File
 from .forms import Upload_file
 from django.contrib import messages
-
+from django.core.mail import send_mail
+from .handle_uploaded_file import handle_uploaded_file
 
 # Create your views here.
 
@@ -21,17 +22,38 @@ from django.contrib import messages
 #            return redirect('article:index')
 #    return render(requsts, 'File/Upload.html', {'form': form})
 
+#@login_required()
+#def Uploads(request):
+#    form = Upload_file(request.POST or None)
+#    if form.is_valid():
+#        new_item = Upload_File(File=request.FILES)
+#        new_item = form.save(commit=False)
+#        new_item.user = request.user
+#        new_item.save()
+#        messages.success(request, 'your form upload successfully!!')
+#        return redirect('article:index')
+    #else:
+    #    return render(request, 'File/Upload.html', {'form': form})
+#    return render(request, 'File/Upload.html', {'form' : form})
 
+
+
+def Show_Upload(request):
+    post = Upload_File.objects.all()
+    return render(request, 'File/Show.html', {'post': post})
+
+
+@login_required()
 def Upload(request):
     if request.method == 'POST':
         form = Upload_file(request.POST, request.FILES)
         if form.is_valid():
+            new_item = Upload_File(File=request.FILES)
             new_item = form.save(commit=False)
-            #new_item = Upload_file(file_fields=request.FILES)
             new_item.user = request.user
             new_item.save()
             messages.success(request, 'your form upload successfully!!')
             return redirect('article:index')
     else:
         form = Upload_file()
-        return render(request, 'File/Upload.html', {'form' : form})
+    return render(request, 'File/Upload.html', {'form':form})

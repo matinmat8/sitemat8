@@ -1,0 +1,1625 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-cbf42e81b03c0bba3cb",applicationID:"409315095"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <meta name="description" content="دانلود و اشتراک نمونه سوالات امتحانی و محتوای آموزشی پرسش و پاسخ، کلاسهای آنلاین، مدرسه آنلاین، رفع اشکال درسی و مشاوره تحصیلی آزمون آنلاین رایگان درس به درس و آزمون جامع علمی ماهانه درسنامه و متن کتاب درسی و راهنمای گام به گام جستجوی مدارس ابتدایی و متوسطه آموزش و پرورش امکان عضویت دانش آموزان، معلمان و مدیران">
+
+    <meta name="keyword" content="گاما,سوال, پاسخ, آنلاین, مجازی, معلم, دانش آموز, دبیر, مدرسه, نمونه, نهایی, پایانی, تست, فایل آموزشی, ویدئو, پاورپوینت, اپلیکیشن, کسب درامد دبیران, اشتراک گذاری,اول,دوم,سوم,چهارم,پنجم,ششم,هفتم,هشتم,نهم,دهم,یازدهم,دوازدهم,فارسی,ریاضی,علمو,هدیه آسمانی,المپیاد,امتحانات,هماهنگ,استانی,کشوری,مدرسه,مطالعات اجتماعی,عربی,قرآن,جامع">
+    <meta name="author" content="gama.ir"/>
+    <meta name="copyright" content="gama.ir"/>
+
+    <title>صفحه مورد نظر پیدا نشد | Gama.ir</title>
+    
+    <link rel="icon" type="image/png" href="https://gama.ir/assets/image/favicon.png">
+    <link rel="manifest" href="https://gama.ir/manifest.json?v=2">
+
+    
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="https://gama.ir/assets/css/dist/main.min.css?ver=4">
+    <link rel="stylesheet" type="text/css" href="https://gama.ir/assets/packages/flickity/flickity.css">
+    <link rel="stylesheet" type="text/css" href="https://gama.ir/assets/css/dist/newstyle.css?ver=662">
+
+    <meta name="theme-color" content="#008b8b">
+    <meta name="apple-mobile-web-app-title" content="Add to Home">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#008b8b">
+    <meta name="msapplication-navbutton-color" content="#008b8b">
+    <meta name="msapplication-TileColor" content="#008b8b">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="صفحه مورد نظر پیدا نشد | Gama.ir" />
+    <meta property="og:description"  content="دانلود و اشتراک نمونه سوالات امتحانی و محتوای آموزشی پرسش و پاسخ، رفع اشکال درسی و مشاوره تحصیلی آزمون آنلاین رایگان درس به درس و آزمون جامع علمی ماهانه درسنامه و متن کتاب درسی و راهنمای گام به گام جستجوی مدارس ابتدائی و متوسطه آموزش و پرورش امکان عضویت دانش آموزان، معلمان و مدیران" />
+    <meta property="og:type" content="website" />
+    <meta property="og:determiner" content="" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="گاما" />
+    <meta property="og:url" content="/downloader/11995_Gama.ir_Q_Hx0HTR.pdf" />
+    <meta property="og:image" content="https://gama.ir/assets/image/icons/icon-128x128.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="120" />
+    <meta property="og:image:height" content="120" />
+
+    <!-- Google -->
+    <meta name="google-signin-client_id" content="891930018278-nstjhv5kqto07g2j011k5us0kujtnupp.apps.googleusercontent.com">
+
+
+    <link rel="shortcut icon" sizes="57x57" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="shortcut icon" sizes="72x72" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="shortcut icon" sizes="114x114" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="shortcut icon" sizes="128x128" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="shortcut icon" sizes="192x192" href="https://gama.ir/assets/image/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="https://gama.ir/assets/image/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://gama.ir/assets/image/icons/icon-144x144.png">
+
+    
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://gama.ir/assets/js/dist/main.min.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/packages/md5.min.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/packages/sha1.min.js" > </script>
+
+    <script type="text/javascript" src="https://gama.ir/assets/packages/flickity/flickity.pkgd.min.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/js/dist/apb_dropdown.js?version=6" > </script>
+
+    <!-- Vue -->
+    <!-- <script type="text/javascript" src="https://gama.ir/assets/packages/vuejs/vue-package.min.js" > </script> -->
+    <script type="text/javascript" src="https://gama.ir/assets/packages/vuejs/vue.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/packages/vuejs/vuejs-paginate.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/packages/vuejs/vue-router.js" > </script>
+    <script type="text/javascript" src="https://gama.ir/assets/packages/vuejs/vue-scrollto.js" > </script>
+
+    <script src="https://gama.ir/assets/packages/emoji-picker-input-textarea/inputEmoji.js?v=5"></script>
+    <script>
+// Statics
+var ROOT_URL = "https://gama.ir/";
+var ASSETS_URL = "https://gama.ir/assets/";
+var AUTH_URL = "https://gama.ir/authapi/";
+var API_KEY = "T21Ll7egF9uhdIIEj2XS0ptJQqOPaHE7qxICbodA";
+var TOKEN_VALID_SECONDS = "60";
+
+// Globals
+var TOKEN = API_KEY.substr(0, 5) + md5(API_KEY + Date.now());
+</script>    <script type="text/javascript" src="https://gama.ir/assets/js/dist/script.js?version=95"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('.ui.checkbox').checkbox();
+            $('.ui.dropdown').dropdown();
+            $('.ui.dropdown.item').dropdown({
+                on : 'hover'
+            });
+            $('.ui.rating').rating();
+            $('.ui.sticky').sticky({
+                context : 'footer'
+            });
+
+            $('.progress').progress();
+        });
+
+        var hash_name = form_token = '';
+        // CSRF Token Generator
+                hash_name = "ci_csrf_token";
+        form_token = "";
+
+    </script>
+
+        
+</head>
+<body>
+
+<script>
+// addToHomescreen.removeSession();     // use this to remove the localStorage variable
+var ath = addToHomescreen({
+    //debug: 'android',     // activate debug mode in ios emulation
+    skipFirstVisit: true,   // show at first access
+    startDelay: 0,          // display the message right away
+    lifespan: 0,            // do not automatically kill the call out
+    displayPace: 0,         // do not obey the display pace
+    privateModeOverride: true,  // show the message in private mode
+    maxDisplayCount: 1,      // do not obey the max display count
+    message : 'لطفا آیکن گاما را به صفحه گوشی خود منتقل کنید تا هرچه سریع تر به امکانات آن دسترسی پیدا کنید.<br>برای این کار روی <span class="ath-action-icon">icon</span> تپ کنید و گزینه <strong>Add to Home Screen</strong> را بزنید.',
+    onAdd : function(){
+        // factInc
+    }
+});
+// ath.clearSession();      // reset the user session
+</script>
+
+<script type="text/javascript">
+    /*
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      // e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice
+        .then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          } else {
+            console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
+        });
+
+      console.log('here');
+    });
+    */
+</script>
+
+<div class="tempMsgMain">
+    <p id="tempMsg"></p>
+</div>
+<style type="text/css">
+    #google-signin2 {
+        padding: 10px 21px;
+    }
+    #google-signin2 > div {
+        width: inherit !important;
+    }
+</style>
+<div id="authapp">
+<script>
+    $(document).ready(function(){
+        $('.ui.form.register')
+          .form({
+            on: 'submit',
+            inline: true,
+            onSuccess: function(event, fields) {
+                authapp.register();
+                return false;
+            },
+            onFailure: function(event, fields){
+                // Handle required code issue in reverse confirmation
+                if(authapp.operation_type == 'register' && fields.code == ''){
+                    authapp.register();
+                    return false;
+                }else{
+                    // console.log(event, fields);
+                    return false;
+                }
+            },
+            fields: {
+            	identity: {
+                    identifier: 'identity',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا ایمیل یا شماره موبایل خود را وارد کنید.'
+                      }
+                    ]
+                },
+                code: {
+                    identifier: 'code',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا کدی که برای شما ارسال شده است را وارد کنید.'
+                      }
+                    ]
+                },
+                pass1: {
+                    identifier: 'pass1',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا رمزعبور را وارد کنید.'
+                      },
+                      {
+                        type   : 'minLength[6]',
+                        prompt : 'رمز کوتاه است. لطفا حداقل از 6 کارکتر استفاده کنید.'
+                      }
+                    ]
+                },
+                pass2: {
+                    identifier: 'pass2',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا رمزعبور را مجددا وارد کنید.'
+                      },
+                      {
+                        type : 'match[pass1]',
+                        prompt : "رمزهای عبور وارد شده یکسان نیست."
+                      }
+                    ]
+                }
+            }
+
+        });
+
+        $('.ui.form.login')
+          .form({
+            on: 'submit',
+            inline: true,
+            onSuccess: function(event, fields) {
+                authapp.login();
+                return false;
+            },
+            fields: {
+                identity: {
+                    identifier: 'identity',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا شماره موبایل را وارد کنید.'
+                      }
+                    ]
+                },
+                pass: {
+                    identifier: 'pass',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا رمزعبور را وارد کنید.'
+                      }
+                    ]
+                }
+            }
+        });
+
+
+        $('.ui.form.lostpass')
+          .form({
+            on: 'submit',
+            inline: true,
+            onSuccess: function(event, fields) {
+                authapp.lostpass();
+                return false;
+            },
+            onFailure: function(event, fields){
+                // Handle required code issue in reverse confirmation
+                if(authapp.operation_type == 'resetpass' && fields.code == ''){
+                    authapp.lostpass();
+                    return false;
+                }else{
+                    // console.log(event, fields);
+                    return false;
+                }
+            },
+            fields: {
+                identity: {
+                    identifier: 'identity',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا ایمیل یا شماره موبایل خود را وارد کنید.'
+                      }
+                    ]
+                },
+                code: {
+                    identifier: 'code',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا کدی که برای شما ارسال شده است را وارد کنید.'
+                      }
+                    ]
+                },
+                pass1: {
+                    identifier: 'pass1',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا رمزعبور را وارد کنید.'
+                      },
+                      {
+                        type   : 'minLength[6]',
+                        prompt : 'رمز کوتاه است. لطفا حداقل از 6 کارکتر استفاده کنید.'
+                      }
+                    ]
+                },
+                pass2: {
+                    identifier: 'pass2',
+                    rules: [
+                      {
+                        type   : 'empty',
+                        prompt : 'لطفا رمزعبور را مجددا وارد کنید.'
+                      },
+                      {
+                        type : 'match[pass1]',
+                        prompt : "رمزهای عبور وارد شده یکسان نیست."
+                      }
+                    ]
+                }
+            }
+
+        });
+    })
+</script>
+<div class="ui modal auth">
+    <div class="ui inverted dimmer" :class="loading ? 'active' : ''">
+        <div class="ui text loader">درحال دریافت اطلاعات ...</div>
+    </div>
+	<div class="ui right aligned header">{{ typeTitle }}</div>
+
+    <!-- Google Auth -->
+    <div id="google-signin2"></div>
+
+	<div class="ui right aligned content">
+        <div class="ui positive message" :class="(successMsg == '') ? 'hidden' : ''"><p>{{ successMsg }}</p></div>
+        <div class="ui negative message" :class="(errorMsg == '') ? 'hidden' : ''"><p>{{ errorMsg }}</p></div>
+
+        <!-- REGISTER -->
+        <form class="ui form register" v-show="type == 'register'">
+            <!-- request -->
+            <div v-if="operation_type == 'request'">
+                <!-- Identity -->
+                <div class="field">
+                    <label>موبایل / ایمیل</label>
+                    <input type="text" name="identity" dir="ltr" v-model="identity" placeholder="شماره موبایل یا ایمیل">
+                </div>
+
+                <!-- Terms -->
+				<div class="field">
+					<!-- <div class="ui right checkbox" dir="rtl"> -->
+						<!-- <input type="checkbox" name="terms"  value="1" tabindex="0" > -->
+                        <label id="terms">
+                            <a style="color:blue" target="_blank" href="https://gama.ir/page/show/8">قوانین و مقررات</a>
+                            را خواندم و می پذیرم.
+                        </label>
+					<!-- </div> -->
+				</div>
+
+                <div class="ui hidden divider"></div>
+                <div class="ui hidden divider"></div>
+				<div class="ui divider"></div>
+                <div class="ui field" align="center">
+                    <a class="ui centered" id="loginlink" href="#" @click="type='login'">قبلا ثبت نام کرده اید؟ وارد شوید!</a>
+                </div>
+            </div>
+
+            <!-- confirm code -->
+            <div v-if="operation_type == 'confirm' || operation_type == 'resend_code'">
+                <p>لطفا کدی که برای شما ارسال شده است را وارد کنید.</p>
+                <div class="ui field code">
+                    <label>کد فعال سازی : </label>
+                    <input type="text" name="code" id="code" v-model="code" placeholder="-----" style="text-align: center" dir="ltr">
+                </div>
+
+                <br>
+
+                <a id="resendLink" href="javascript:void(0)" @click="resend()">
+                    ارسال مجدد کد فعال سازی 
+                    <span>{{ countDown }}</span>
+                </a>
+            </div>
+
+            <!-- Receive confirm code -->
+            <div v-if="type == 'register' && operation_type == 'receive'">
+                <p align="center" style="line-height: 32px;">
+                    بنظر میرسد شما قادر به دریافت پیامکهای ما نیستید!<br>
+                    لطفا برای فعال سازی کد <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui orange label receive_code">{{ receive_code }}</span>
+                    </a><br>
+                    را از طریق شماره <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui large orange label identity">{{ identity }}</span>
+                    </a><br>
+                    به شماره <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui large orange label" dir="ltr">10001883</span>
+                    </a><br>
+                    ارسال کنید.
+                    <br>
+                    <br>
+                    <span style="color:#009688">منتظر بمانید تا فعال سازی انجام شود!</span>
+                </p>
+                <center><i class="icon circle notched loading"></i> منتظر دریافت پیامک شما ... </center>
+            </div>
+
+            <!-- Password -->
+            <div v-if="operation_type == 'register'">
+                <p>لطفا برای حساب خود رمز عبور وارد کنید.</p>
+
+                <div class="ui field">
+                    <label>رمزعبور :</label>
+                    <input dir="ltr" name="pass1" v-model="pass1" type="password">
+                </div>
+
+                <div class="ui field">
+                    <label>تکرار رمزعبور :</label>
+                    <input dir="ltr" name="pass2" v-model="pass2" type="password">
+                </div>
+            </div>
+
+            <!-- control buttons -->
+            <div v-show="type == 'register' && operation_type != 'receive'">
+                <div class="ui divider"></div>
+                <div class="ui hidden divider"></div>
+                <div class="actions">
+                    <div class="ui centered grid">
+                        <div class="ui cancel button">انصراف</div>
+                        <input type="submit" class="ui blue button" value="ثبت نام">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- LOSTPASS -->
+        <form class="ui form lostpass" v-show="type == 'lostpass'">
+            <!-- request -->
+            <div v-if="operation_type == 'request'">
+                <!-- Identity -->
+                <div class="field">
+                    <label>موبایل / ایمیل</label>
+                    <input type="text" name="identity" dir="ltr" v-model="identity" placeholder="شماره موبایل یا ایمیل">
+                </div>
+
+                <br>
+                <div class="ui field" align="center">
+                    <a href="javascript:void(0)" class="authlink" @click="type='login'" >ورود</a> | <a href="javascript:void(0)" class="authlink"  @click="type='register'" >ثبت نام</a>
+                </div>
+            </div>
+
+            <!-- confirm code -->
+            <div v-if="operation_type == 'confirm' || operation_type == 'resend_code'">
+                <p>لطفا کدی که برای شما ارسال شده است را وارد کنید.</p>
+                <div class="ui field code">
+                    <label>کد فعال سازی : </label>
+                    <input type="text" name="code" id="code" v-model="code" placeholder="-----" style="text-align: center" dir="ltr">
+                </div>
+
+                <br>
+
+                <a id="resendLink" href="javascript:void(0)" @click="resend()">
+                    ارسال مجدد کد فعال سازی 
+                    <span>{{ countDown }}</span>
+                </a>
+            </div>
+
+            <!-- Receive confirm code -->
+            <div v-if="type == 'lostpass' && operation_type == 'receive'">
+                <p align="center" style="line-height: 32px;">
+                    بنظر میرسد شما قادر به دریافت پیامکهای ما نیستید!<br>
+                    لطفا برای فعال سازی کد <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui orange label receive_code">{{ receive_code }}</span>
+                    </a><br>
+                    را از طریق شماره <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui large orange label identity">{{ identity }}</span>
+                    </a><br>
+                    به شماره <br>
+                    <a :href="'sms:10001883?&body='+receive_code">
+                        <span class="ui large orange label" dir="ltr">10001883</span>
+                    </a><br>
+                    ارسال کنید.
+                    <br>
+                    <br>
+                    <span style="color:#009688">منتظر بمانید تا فعال سازی انجام شود!</span>
+                </p>
+                <center><i class="icon circle notched loading"></i> منتظر دریافت پیامک شما ... </center>
+            </div>
+
+            <!-- Password -->
+            <div v-if="operation_type == 'resetpass'">
+                <p>لطفا برای حساب خود رمز عبور وارد کنید.</p>
+
+                <div class="ui field">
+                    <label>رمزعبور :</label>
+                    <input dir="ltr" name="pass1" v-model="pass1" type="password">
+                </div>
+
+                <div class="ui field">
+                    <label>تکرار رمزعبور :</label>
+                    <input dir="ltr" name="pass2" v-model="pass2" type="password">
+                </div>
+
+            </div>
+
+            <!-- control buttons -->
+            <div v-if="type == 'lostpass' && operation_type != 'receive'">
+                <div class="ui divider"></div>
+                <div class="actions">
+                    <div class="ui hidden divider"></div>
+                    <div class="ui centered grid">
+                        <div class="ui cancel button">انصراف</div>
+                        <input type="submit" class="ui blue button" value="بازیابی رمز">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- LOGIN -->
+        <form class="ui form login" v-show="type == 'login'">
+
+            <div v-if="operation_type == 'redirect'">
+                <div class="ui hidden divider"></div>
+                <center><i class="icon circle notched loading"></i> درحال انتقال به پروفایل شما ...</center>
+            </div>
+
+            <div v-show="operation_type != 'redirect'">  
+                <!-- Identity -->
+                <div class="field">
+                    <label>موبایل / ایمیل</label>
+                    <input type="text" name="identity" dir="ltr" v-model="identity" placeholder="شماره موبایل یا ایمیل">
+                </div>
+
+                <!-- Pass -->
+                <div class="ui field">
+                    <label>رمزعبور</label>
+                    <input dir="ltr" name="pass" v-model="pass" type="password">
+                </div>
+
+                <!-- Links -->
+                <div class="ui field" align="center">
+                    <a href="#" id="resetpasslink" @click="type='lostpass'">رمز عبور خود را فراموش کردید؟ بازیابی کنید.</a>
+                </div>
+                <br>
+
+                <div class="ui divider"></div>
+                <div class="ui field" align="center">
+                    <a class="ui centered" href="#" @click="type='register'">هنوز عضو نشده اید؟ ثبت نام کنید.</a>
+                </div>
+
+
+                <!-- control buttons -->
+                <div class="ui divider"></div>
+                <div class="actions">
+                    <div class="ui hidden divider"></div>
+                    <div class="ui centered grid">
+                        <div class="ui cancel button">انصراف</div>
+                        <input type="submit" class="ui blue button" value="ورود">
+                    </div>
+                </div>
+            </div>
+        </form> 
+    </div>
+</div>
+</div>
+<!-- Google oauth config is in headermenu file and script in footer -->
+
+<script type="text/javascript" src="https://gama.ir/assets/js/dist/gamaAuth.js?ver=30" > </script>
+<header>
+    <!-- Deprecated browser suggestion bar -->
+    
+    <!-- <script type="text/javascript" src="https://gama.ir/assets/packages/jquery.countdown-2.2.0/jquery.countdown.min.js?v=22" > </script> -->
+    <!-- <div class="depricatedBrowserAlert countdownAlert">
+        <a href="https://gama.ir/news/detail/600"><p><span id="countDown"></span> تا شروع عملیات انتقال سرور گاما</p></a>
+    </div>    --> 
+
+    <script type="text/javascript">
+        // var seconds = 1513776381807 + 115*60*1000;
+        // $('#countDown').countdown(seconds, {elapse: true})
+        // .on('update.countdown', function(event) {
+        //   var $this = $(this);
+        //   if (event.elapsed) {
+        //     $(".countdownAlert").hide();
+        //     // $(".timeCountDown .statistic").removeClass("green").addClass("red");
+        //     // $this.html(event.strftime('<div>%H:%M:%S</div>'));
+        //   } else {
+        //     $this.html(event.strftime('%H:%M:%S'));
+        //   }
+        // });
+    </script>    
+
+
+    <noscript>
+        <div class="mainContainer">
+            <div class="ui raised segment searchArea">
+                <div class="ui red message">
+                    <div class="header">
+                        اخطار غیرفعال بودن جاوا اسکریپت
+                    </div>
+                    <p>برای استفاده بسیاری از امکانات گاما و خیلی از وبسایت ها باید <b>جاوا اسکریپت</b> را در مرورگر خود فعال کنید.</p>
+                </div>
+            <i class="icon error"></i>
+                <p>برای این کار باید به تنظیمات مرورگر خود مراجعه کنید.
+                    <a href="http://monagese.urmia.ir/EnableJavaScript.html" target="_blank">در صورت نیاز به راهنمایی اینجا کلیک کنید.</a>.
+                </p>
+            </div>
+        </div>
+        <br>
+    </noscript>
+
+    <!-- <div class="headerAmazing hbd">
+        <div class="dark">
+            <a href="https://gama.ir/">
+                <div class="container">
+                    🎉🎁 40 درصد تخفیف شگفت انگیز به مناسبت تولد 5 سالگی گاما<span class="nomobile"> ! 🎂🎈</span>
+                </div>
+            </a>
+        </div>
+    </div> -->
+
+    
+
+    <!-- Top login bar -->
+    <div class="topBar">
+        <div class="mainContainer">
+                            <a href="javascript:void(0)" onclick="authapp.type='register';show_modal('auth')"><i class="icon add user"></i> ثبت نام</a>
+                &nbsp;
+                <a href="javascript:void(0)" onclick="authapp.type='login';show_modal('auth')"><i class="icon sign in"></i> ورود</a>
+            
+            <div class="left">
+                <a href="https://t.me/gamair" title="تلگرام گاما"><i class="icon send"></i></a>
+                <a href="https://gama.ir/contact" title="تماس با ما"><i class="icon phone"></i></a>
+                <a href="https://gama.ir/page/show/8" title="قوانین و مقررات"><i class="icon legal"></i></a>
+                <a class="nomobile" href="https://gama.ir/page/about" title="درباره ما"><i class="icon info"></i></a>
+                <a class="nomobile" href="https://gama.ir/page/show/9" title="پرسش های متداول"><i class="icon help"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.ui.rating').rating({
+                onRate : function (value) {
+                    id = $(this).attr('data-id');
+                    // $("#"+id).val(value);
+                    setClassScore(id,value);
+                }
+            });
+        });
+    </script>
+
+    
+    <!-- Nav menu bar -->
+    <div class="navBar">
+        <div class="mainContainer">
+            <span class="tablet">
+                <span class="ui button" id="menuSideBar"><i class="icon sidebar"></i></span>
+                <span class="ui button" id="searchBtn" onclick="searchAreaToggle()"><i class="icon search"></i></span>
+            </span>
+
+            <div class="apb left floated menu">
+                <a href="https://gama.ir/" class="logo"></a>
+            </div>
+
+            <div class="ui right demo vertical sidebar labeled icon menu">
+                <div class="tempMsgMain">
+                    <p id="tempMsg"></p>
+                </div>
+                
+                <!-- <div class="sideLogo">
+                </div> -->
+                <div class="user">
+                                            <div class="loginBtn">
+                            <div class="ui two column grid">
+                                <div class="column center aligned">
+                                    <a href="javascript:void(0)" onclick="authapp.type='register';show_modal('auth');"><i class="icon add user"></i> ثبت نام</a>
+                                </div>
+                                <div class="column center aligned">
+                                    <a href="javascript:void(0)" onclick="authapp.type='login';show_modal('auth')"><i class="icon sign in"></i> ورود</a>
+                                </div>
+                            </div>
+                        </div>
+                                    </div>
+
+                <div class="menuItems">
+                    <a href="https://gama.ir/" class="item ">
+                        <i class="icon home large"></i> &nbsp;خانه
+                    </a>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> آشنایی                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/8" class="item"><i class="icon angle double left"></i> قوانین و مقررات</a>
+                                                                <a href="https://gama.ir/page/show/9" class="item"><i class="icon angle double left"></i> پرسش های متداول</a>
+                                                                <a href="https://gama.ir/page/show/12" class="item"><i class="icon angle double left"></i> راهنمای عضویت</a>
+                                                                <a href="https://gama.ir/page/show/15" class="item"><i class="icon angle double left"></i> راهنمای دانش آموزان</a>
+                                                                <a href="https://gama.ir/page/show/13" class="item"><i class="icon angle double left"></i> راهنمای دبیران</a>
+                                                                <a href="https://gama.ir/page/show/14" class="item"><i class="icon angle double left"></i> شرایط و مقررات انتشار محتوا</a>
+                                                                <a href="https://gama.ir/page/show/124" class="item"><i class="icon angle double left"></i> راهنمای تدریس آنلاین</a>
+                                                                <a href="https://gama.ir/page/show/117" class="item"><i class="icon angle double left"></i> راهنمای تولید فیلم آموزشی</a>
+                                                                <a href="https://gama.ir/page/show/77" class="item"><i class="icon angle double left"></i> راهنمای آزمون آنلاین</a>
+                                                                <a href="https://gama.ir/page/show/69" class="item"><i class="icon angle double left"></i> نرم افزارهای كاربردی</a>
+                                                                <a href="https://gama.ir/page/show/99" class="item"><i class="icon angle double left"></i> راهنمای معلم خصوصی</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> المپیادها                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/4" class="item"><i class="icon angle double left"></i> المپیاد ریاضی</a>
+                                                                <a href="https://gama.ir/page/show/19" class="item"><i class="icon angle double left"></i> المپیاد فیزیک</a>
+                                                                <a href="https://gama.ir/page/show/20" class="item"><i class="icon angle double left"></i> المپیاد شیمی</a>
+                                                                <a href="https://gama.ir/page/show/21" class="item"><i class="icon angle double left"></i> المپیاد زیست شناسی</a>
+                                                                <a href="https://gama.ir/page/show/22" class="item"><i class="icon angle double left"></i> المپیاد کامپیوتر</a>
+                                                                <a href="https://gama.ir/page/show/23" class="item"><i class="icon angle double left"></i> المپیاد نجوم</a>
+                                                                <a href="https://gama.ir/page/show/24" class="item"><i class="icon angle double left"></i> المپیاد ادبی</a>
+                                                                <a href="https://gama.ir/page/show/25" class="item"><i class="icon angle double left"></i> المپیاد سلول‌های بنیادی</a>
+                                                                <a href="https://gama.ir/page/show/95" class="item"><i class="icon angle double left"></i> المپیاد جغرافیا</a>
+                                                                <a href="https://gama.ir/page/show/114" class="item"><i class="icon angle double left"></i> المپیاد علوم زمین</a>
+                                                                <a href="https://gama.ir/page/show/115" class="item"><i class="icon angle double left"></i> المپیاد اقتصاد و مدیریت</a>
+                                                                <a href="https://gama.ir/page/show/116" class="item"><i class="icon angle double left"></i> المپیاد تفکر و کارآفرینی</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> نمونه و تیزهوشان                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/26" class="item"><i class="icon angle double left"></i> آزمون ورودی پایه چهارم</a>
+                                                                <a href="https://gama.ir/page/show/27" class="item"><i class="icon angle double left"></i> آزمون ورودی پایه هفتم</a>
+                                                                <a href="https://gama.ir/page/show/28" class="item"><i class="icon angle double left"></i> آزمون ورودی پايه دهم</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> کتابهای درسی                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/43" class="item"><i class="icon angle double left"></i> دوره دبستان</a>
+                                                                <a href="https://gama.ir/page/show/48" class="item"><i class="icon angle double left"></i> دوره اول متوسطه</a>
+                                                                <a href="https://gama.ir/page/show/49" class="item"><i class="icon angle double left"></i> دوره دوم متوسطه</a>
+                                                                <a href="https://gama.ir/page/show/50" class="item"><i class="icon angle double left"></i> بارم بندی دروس</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> پیشنهاد ویژه                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/71" class="item"><i class="icon angle double left"></i> امتحانات هماهنگ نهم</a>
+                                                                <a href="https://gama.ir/page/show/94" class="item"><i class="icon angle double left"></i> امتحان نهایی دوازدهم</a>
+                                                                <a href="https://gama.ir/page/show/108" class="item"><i class="icon angle double left"></i> امتحانات هماهنگ ششم</a>
+                                                                <a href="https://gama.ir/page/show/67" class="item"><i class="icon angle double left"></i> ويژه نامه نوبت دوم</a>
+                                                                <a href="https://gama.ir/page/show/64" class="item"><i class="icon angle double left"></i> آزمون‌های نوبت دوم</a>
+                                                                <a href="https://gama.ir/page/show/93" class="item"><i class="icon angle double left"></i> مجموعه نمونه سؤالات</a>
+                                                                <a href="https://gama.ir/page/show/90" class="item"><i class="icon angle double left"></i> آزمون سنجش آغازین</a>
+                                                                <a href="https://gama.ir/page/show/78" class="item"><i class="icon angle double left"></i> آزمون‌های نوبت اول</a>
+                                                                <a href="https://gama.ir/page/show/68" class="item"><i class="icon angle double left"></i> هفده سال کنکور سراسری</a>
+                                                                <a href="https://gama.ir/page/show/57" class="item"><i class="icon angle double left"></i> پيک نوروزی بهار 96</a>
+                                                                <a href="https://gama.ir/page/show/91" class="item"><i class="icon angle double left"></i> نمونه سؤالات پیام نور با پاسخ</a>
+                                                            </div>
+                        </div>
+                                        <!-- <a href="https://gama.ir/page/show/89" class="item">
+                        &nbsp;تبلیغات
+                    </a> -->
+                    <div class="item">
+                        <a href="https://gama.ir/page/liveHelp" class="apb red">
+                            <i class="icon tv"></i> تدریس آنلاین
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="social">
+                    <div class="ui centered grid">
+                        <div class="ui horizontal list socialList">
+                            <div class="item"><a href="https://t.me/gamair" target="_blank"><i class="icon telegram blue"></i></a></div>
+                            <div class="item"><a href="https://twitter.com/ir_gama" target="_blank"><i class="icon twitter square cornflowerblue"></i></a></div>
+                            <div class="item"><a href="https://plus.google.com/113366734420484929827" target="_blank"><i class="icon google plus square red"></i></a></div>
+                            <div class="item"><a href="https://www.instagram.com/gama.ir " target="_blank"><i class="icon instagram square brown"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+
+                    $('#menuSideBar').click(function(){
+                        $('.ui.labeled.icon.sidebar').sidebar('toggle');
+                    });
+
+                    $('#closeSideBar').click(function(){
+                        $('.ui.labeled.icon.sidebar').sidebar('toggle');
+                    })
+                })
+
+                function searchAreaToggle (argument) {
+                    if($('.searchFullArea').length > 0 && !$('.searchArea').hasClass("home")){
+                        app.searchFullArea = !app.searchFullArea;
+                    }else if($('.searchArea').length > 0 && ($('.searchArea').hasClass("school") || $('.searchArea').hasClass("teacher"))){
+                            $('.searchArea').slideToggle();
+                    }else if($('.searchArea').length > 0 && !$('.searchArea').hasClass("home")){
+                        app.searchFullArea = !app.searchFullArea;
+                    }else{
+                        //     $('.searchArea').slideToggle();
+                        // }else{
+                            redirect('search?type=test&openSearchArea=1');
+                        // }
+                    }
+                }
+            </script>
+
+
+            <nav class="desktop">
+                <div class="ui secondary menu">
+                    <a href="https://gama.ir/" class="item ">
+                        <i class="icon home large"></i> &nbsp;خانه
+                    </a>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> آشنایی                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/8" class="item"><i class="icon angle double left"></i> قوانین و مقررات</a>
+                                                                <a href="https://gama.ir/page/show/9" class="item"><i class="icon angle double left"></i> پرسش های متداول</a>
+                                                                <a href="https://gama.ir/page/show/12" class="item"><i class="icon angle double left"></i> راهنمای عضویت</a>
+                                                                <a href="https://gama.ir/page/show/15" class="item"><i class="icon angle double left"></i> راهنمای دانش آموزان</a>
+                                                                <a href="https://gama.ir/page/show/13" class="item"><i class="icon angle double left"></i> راهنمای دبیران</a>
+                                                                <a href="https://gama.ir/page/show/14" class="item"><i class="icon angle double left"></i> شرایط و مقررات انتشار محتوا</a>
+                                                                <a href="https://gama.ir/page/show/124" class="item"><i class="icon angle double left"></i> راهنمای تدریس آنلاین</a>
+                                                                <a href="https://gama.ir/page/show/117" class="item"><i class="icon angle double left"></i> راهنمای تولید فیلم آموزشی</a>
+                                                                <a href="https://gama.ir/page/show/77" class="item"><i class="icon angle double left"></i> راهنمای آزمون آنلاین</a>
+                                                                <a href="https://gama.ir/page/show/69" class="item"><i class="icon angle double left"></i> نرم افزارهای كاربردی</a>
+                                                                <a href="https://gama.ir/page/show/99" class="item"><i class="icon angle double left"></i> راهنمای معلم خصوصی</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> المپیادها                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/4" class="item"><i class="icon angle double left"></i> المپیاد ریاضی</a>
+                                                                <a href="https://gama.ir/page/show/19" class="item"><i class="icon angle double left"></i> المپیاد فیزیک</a>
+                                                                <a href="https://gama.ir/page/show/20" class="item"><i class="icon angle double left"></i> المپیاد شیمی</a>
+                                                                <a href="https://gama.ir/page/show/21" class="item"><i class="icon angle double left"></i> المپیاد زیست شناسی</a>
+                                                                <a href="https://gama.ir/page/show/22" class="item"><i class="icon angle double left"></i> المپیاد کامپیوتر</a>
+                                                                <a href="https://gama.ir/page/show/23" class="item"><i class="icon angle double left"></i> المپیاد نجوم</a>
+                                                                <a href="https://gama.ir/page/show/24" class="item"><i class="icon angle double left"></i> المپیاد ادبی</a>
+                                                                <a href="https://gama.ir/page/show/25" class="item"><i class="icon angle double left"></i> المپیاد سلول‌های بنیادی</a>
+                                                                <a href="https://gama.ir/page/show/95" class="item"><i class="icon angle double left"></i> المپیاد جغرافیا</a>
+                                                                <a href="https://gama.ir/page/show/114" class="item"><i class="icon angle double left"></i> المپیاد علوم زمین</a>
+                                                                <a href="https://gama.ir/page/show/115" class="item"><i class="icon angle double left"></i> المپیاد اقتصاد و مدیریت</a>
+                                                                <a href="https://gama.ir/page/show/116" class="item"><i class="icon angle double left"></i> المپیاد تفکر و کارآفرینی</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> نمونه و تیزهوشان                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/26" class="item"><i class="icon angle double left"></i> آزمون ورودی پایه چهارم</a>
+                                                                <a href="https://gama.ir/page/show/27" class="item"><i class="icon angle double left"></i> آزمون ورودی پایه هفتم</a>
+                                                                <a href="https://gama.ir/page/show/28" class="item"><i class="icon angle double left"></i> آزمون ورودی پايه دهم</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> کتابهای درسی                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/43" class="item"><i class="icon angle double left"></i> دوره دبستان</a>
+                                                                <a href="https://gama.ir/page/show/48" class="item"><i class="icon angle double left"></i> دوره اول متوسطه</a>
+                                                                <a href="https://gama.ir/page/show/49" class="item"><i class="icon angle double left"></i> دوره دوم متوسطه</a>
+                                                                <a href="https://gama.ir/page/show/50" class="item"><i class="icon angle double left"></i> بارم بندی دروس</a>
+                                                            </div>
+                        </div>
+                                            <div href="#" class="ui dropdown item">
+                            <i class="icon caret down"></i> پیشنهاد ویژه                            <div class="menu">
+                                                                <a href="https://gama.ir/page/show/71" class="item"><i class="icon angle double left"></i> امتحانات هماهنگ نهم</a>
+                                                                <a href="https://gama.ir/page/show/94" class="item"><i class="icon angle double left"></i> امتحان نهایی دوازدهم</a>
+                                                                <a href="https://gama.ir/page/show/108" class="item"><i class="icon angle double left"></i> امتحانات هماهنگ ششم</a>
+                                                                <a href="https://gama.ir/page/show/67" class="item"><i class="icon angle double left"></i> ويژه نامه نوبت دوم</a>
+                                                                <a href="https://gama.ir/page/show/64" class="item"><i class="icon angle double left"></i> آزمون‌های نوبت دوم</a>
+                                                                <a href="https://gama.ir/page/show/93" class="item"><i class="icon angle double left"></i> مجموعه نمونه سؤالات</a>
+                                                                <a href="https://gama.ir/page/show/90" class="item"><i class="icon angle double left"></i> آزمون سنجش آغازین</a>
+                                                                <a href="https://gama.ir/page/show/78" class="item"><i class="icon angle double left"></i> آزمون‌های نوبت اول</a>
+                                                                <a href="https://gama.ir/page/show/68" class="item"><i class="icon angle double left"></i> هفده سال کنکور سراسری</a>
+                                                                <a href="https://gama.ir/page/show/57" class="item"><i class="icon angle double left"></i> پيک نوروزی بهار 96</a>
+                                                                <a href="https://gama.ir/page/show/91" class="item"><i class="icon angle double left"></i> نمونه سؤالات پیام نور با پاسخ</a>
+                                                            </div>
+                        </div>
+                                        <!-- <a href="https://gama.ir/page/show/89" class="apb blue item">
+                        <i class="icon bullhorn"></i> &nbsp;تبلیغات
+                    </a> -->
+                    <div class="item">
+                        <a href="https://gama.ir/page/liveHelp" class="apb red">
+                            <i class="icon tv"></i> تدریس آنلاین
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+
+            <!-- text search -->
+            <div class="searchBox " id="textSearchApp" v-clock>
+    <div class="ui huge icon input" :class="loading ? 'loading' : ''" dir="rtl">
+      <i class="inverted search link icon"></i>
+      <input type="text" id="searchstr" placeholder="جستجو کنید ..." v-model="searchstr">
+    </div>
+
+    <div class="ui segment searchList" v-if="total > 0">
+        <div class="ui inverted dimmer" :class="loading ? 'active' : ''">
+            <div class="ui text loader">درحال دریافت اطلاعات ...</div>
+        </div>
+
+        <div class="ui relaxed divided list">
+            <a href="javascript:void(0)" class="closeBtn" @click="close"><i class="icon red remove"></i></a>
+            <p>{{ total }} مورد پیدا کردم!</p>
+            <div class="item" v-for="row in list">
+                <div class="content">
+                    <a class="header" v-if="row.type == 'gama_tests'" :href="ROOT_URL+'test/detail/'+row.id">
+                        <span class="apb test color"><i class="icon-test"></i></span>
+                        {{ row.title }}
+                    </a>
+                    <a class="header" v-else-if="row.type == 'gama_files'" :href="ROOT_URL+'learnfiles/detail/'+row.id">
+                        <span class="apb learnfile color"><i class="icon-learnfiles"></i></span>
+                        {{ row.title }}
+                    </a>
+                    <a class="header" v-else-if="row.type == 'gama_azmoons'" :href="ROOT_URL+'azmoon/detail/0/'+row.id">
+                        <span class="apb azmoon color"><i class="icon-azmoon"></i></span>
+                        {{ row.title }}
+                    </a>
+                    <a class="header" v-else-if="row.type == 'gama_questions'" :href="ROOT_URL+'question/detail/'+row.id">
+                        <span class="apb question color"><i class="icon-qa"></i></span>
+                        {{ row.title }}
+                    </a>
+                    <a class="header" v-else-if="row.type == 'gama_dars'" :href="ROOT_URL+'dars/detail/'+row.id">
+                        <span class="apb dars color"><i class="icon-blog"></i></span>
+                        {{ row.title }}
+                    </a>
+
+                    <a class="header" v-else-if="row.type == 'gama_schools'" :href="ROOT_URL+'school/detail/'+row.id">
+                        <span class="apb school color"><i class="icon-school"></i></span>
+                        {{ row.title }}
+                    </a>
+
+                    <a class="header" v-else-if="row.type == 'gama_teachers'" :href="ROOT_URL+'teacher/detail/'+row.id">
+                        <span class="apb teacher color">
+                            <i v-if="row.pv_teacher == '0'" class="icon user"></i>
+                            <i v-else class="apb tutor color icon-teacher"></i>
+                        </span>
+                        {{ row.title }}
+                        <span v-if="(typeof row.education_title != 'undefined') && row.education_title != ''">{{ " "+row.education_title }}</span>
+                        <span v-if="(typeof row.course != 'undefined') && row.course != ''">{{ " "+row.course }}</span>
+                        <span v-if="(typeof row.city != 'undefined') && row.city != ''">{{ " - "+row.city }}</span>
+                    </a>
+
+                    <div class="description" v-if="row.type != 'gama_schools' && row.type != 'gama_teachers'">
+                        <a class="ui label" v-if="row.l_title != '0' && row.l_title != '' && row.l_title != 'نامشخص' ">{{ row.l_title }}</a>
+                        <a class="ui label" v-if="row.c_title != '0' && row.c_title != '' && row.c_title != 'نامشخص' ">{{ row.c_title }}</a>
+                        <a class="ui label" v-if="row.b_title != '0' && row.b_title != '' && row.b_title != 'نامشخص' ">{{ row.b_title }}</a>
+                        <a class="ui label" v-if="row.s_title != '0' && row.s_title != '' && row.s_title != 'نامشخص' ">{{ row.s_title }}</a>
+                    </div>
+
+                    <div class="description" v-if="row.type == 'gama_schools'">
+                        <a class="ui label" v-if="row.s_title != '0' && row.s_title != '' && row.s_title != 'نامشخص' ">{{ row.s_title }}</a>
+                        <a class="ui label" v-if="row.area_title != '0' && row.area_title != '' && row.area_title != 'نامشخص' ">{{ row.area_title }}</a>
+                        <a class="ui label" v-if="row.state_title != '0' && row.state_title != '' && row.state_title != 'نامشخص' ">{{ row.state_title }}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui centered grid moreLink" v-if="moreItems" @click="loadMore">
+                <span>موارد بیشتر</span>
+            </div>
+
+        </div>
+        <span class="searchfooterCopyRight">جستجوی هوشمند گاما (v1.7)</span>
+    </div>
+</div>
+<script type="text/javascript" src="https://gama.ir/assets/js/dist/textsearch.js?ver=8" > </script>        </div>
+    </div>
+</header>
+
+<!-- <div class="headerEventSuggestion">
+    <div class="mainContainer">
+        <div class="avatar"><img src="https://gama.ir/assets/image/apb_small_2.jpg"></div>
+        <div class="title">پرسش و پاسخ زنده ویدئویی <span style="color: #2488d4">ساعت 19</span></div>
+        <div class="subject">موضوع: سرویس پخش زنده گاما</div>
+        <div class="description">از همین حالا می توانید سوالات خود را در <a href="https://gama.ir/question/detail/19339" style="color: #FF9800">این صفحه</a> بپرسید.</div>
+    </div>
+</div> -->
+
+<!-- Current Live Bar -->
+        
+
+<!-- Google Auth -->
+<script type="text/javascript">
+    var auth2; // The Sign-In object.
+    var googleUser; // The current user.
+
+    /**
+     * Calls startAuth after Sign in V2 finishes setting up.
+     */
+    var gOAuthAppStart = function() {
+        gapi.load('auth2', initSigninV2);
+    };
+
+    /**
+     * Initializes Signin v2 and sets up listeners.
+     */
+    var initSigninV2 = function() {
+        auth2 = gapi.auth2.init({
+          client_id: '891930018278-nstjhv5kqto07g2j011k5us0kujtnupp.apps.googleusercontent.com',
+          scope: 'profile'
+        });
+
+                    gapi.signin2.render('google-signin2', {
+                'scope': 'profile email',
+                'width': 300,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'title' : 'login apb',
+                'onsuccess': gOnSuccess,
+                'onfailure': gOnFailure
+            });
+            setTimeout(function(){
+                $("#google-signin2 div div span span:first").text("ورود با حساب گوگل");
+                $("#google-signin2 div div span span:last").text("ورود انجام شد!");
+            }, 1000);
+
+
+            }
+
+            function gOnSuccess(googleUser) {
+            authapp.loading = true;
+            // $(".modal.auth .dimmer").addClass("active");
+            var id_token = googleUser.getAuthResponse().id_token;
+            // console.log(id_token);
+            // return;
+            $.post(ROOT_URL+"authapi/googleoauth", {'id_token' : id_token}, function(res) {
+                authapp.loading = false;
+                if(res.type != 'false'){
+                    authapp.operation_type = "redirect";
+                    authapp.successMsg = 'خوش اومدی!';
+                    redirect('dashboard');
+                }
+            },'json');
+            // console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+
+        function gOnFailure(error) {
+            console.log(error);
+        }
+    
+    function signOut() {
+        if(typeof gapi != 'undefined'){
+            var auth = gapi.auth2.getAuthInstance();
+            if(auth.isSignedIn.get() == true){
+                auth.disconnect().then(function () {
+                    redirect('user/logout');
+                });
+            }else{
+                redirect('user/logout');
+            }
+        }else{
+            redirect('user/logout');
+        }
+    }
+</script>
+<div class="mainContainer">
+    <div class="ui segment headerTypes mobile">
+    <div class="ui two column grid">
+        <div class="column center aligned">
+            <div class="box test">
+                <a href="https://gama.ir/search?type=test"><i class="icon-test"></i></a>
+                <a href="https://gama.ir/search?type=test"><p>نمونه سوال<br>+44,000</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box file">
+                <a href="https://gama.ir/search?type=learnfiles"><i class="icon-learnfiles"></i></a>
+                <a href="https://gama.ir/search?type=learnfiles"><p>محتوای آموزشی<br>+23,000</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box qa">
+                <a href="https://gama.ir/search?type=question"><i class="icon-qa"></i></a>
+                <a href="https://gama.ir/search?type=question"><p>پرسش و پاسخ<br>+18,000</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box azmoon">
+                <a href="https://gama.ir/search?type=azmoon"><i class="icon-azmoon"></i></a>
+                <a href="https://gama.ir/search?type=azmoon"><p>آزمون آنلاین<br>+4,000</p></a>
+                
+            </div>
+        </div>
+
+        <div class="column center aligned">
+            <div class="box blog">
+                <a href="https://gama.ir/search?type=dars"><i class="icon-blog icon orange"></i></a>
+                <a href="https://gama.ir/search?type=dars"><p>درسنامه آموزشی <br>+1,300</p></a>
+                
+            </div>
+        </div>
+
+        <div class="column center aligned">
+            <div class="box school">
+                <a href="https://gama.ir/school"><i class="icon-school"></i></a>
+                <a href="https://gama.ir/school"><p>مدرسه یاب<br>+130,000</p></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="column center aligned tutorButton">
+        <div class="box tutor">
+            <a href="https://gama.ir/search?type=tutor"><i class="icon-teacher"></i></a>
+            <a href="https://gama.ir/search?type=tutor"><span>معلم خصوصی<br></span></a>
+        </div>
+    </div> -->
+</div>
+
+<div class="ui segment headerTypes desktop">
+    <div class="ui stackable seven column grid">
+        <div class="column center aligned">
+            <div class="box test">
+                <a href="https://gama.ir/search?type=test"><i class="icon-test"></i></a>
+                <a href="https://gama.ir/search?type=test"><p>نمونه سوال</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box file">
+                <a href="https://gama.ir/search?type=learnfiles"><i class="icon-learnfiles"></i></a>
+                <a href="https://gama.ir/search?type=learnfiles"><p>محتوای آموزشی</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box qa">
+                <a href="https://gama.ir/search?type=question"><i class="icon-qa"></i></a>
+                <a href="https://gama.ir/search?type=question"><p>پرسش و پاسخ</p></a>
+                
+            </div>
+        </div>
+        <div class="column center aligned">
+            <div class="box azmoon">
+                <a href="https://gama.ir/search?type=azmoon"><i class="icon-azmoon"></i></a>
+                <a href="https://gama.ir/search?type=azmoon"><p>آزمون آنلاین</p></a>
+                
+            </div>
+        </div>
+
+        <div class="column center aligned">
+            <div class="box blog">
+                <a href="https://gama.ir/search?type=dars"><i class="icon-blog icon orange"></i></a>
+                <a href="https://gama.ir/search?type=dars"><p>درسنامه آموزشی</p></a>
+                
+            </div>
+        </div>
+
+        <div class="column center aligned">
+            <div class="box school">
+                <a href="https://gama.ir/school"><i class="icon-school"></i></a>
+                <a href="https://gama.ir/school"><p>مدرسه یاب</p></a>
+                
+            </div>
+        </div>
+
+        <div class="column center aligned">
+            <div class="box tutor">
+                <a href="https://gama.ir/search?type=tutor"><i class="icon-teacher"></i></a>
+                <a href="https://gama.ir/search?type=tutor"><p>معلم خصوصی</p></a>
+                
+            </div>
+        </div>
+
+        <!-- <div class="column center aligned">
+            <div class="box store">
+                <a href="https://gama.ir/search?type=store"><i class="icon-shop"></i></a>
+                <a href="https://gama.ir/search?type=store"><p>فروشگاه</p></a>
+                
+            </div>
+        </div> -->
+    </div>
+</div>    <!-- Last modified : APB - 9/9/2014 10:14 - completed -->
+<div class="errorMainDiv" >
+						
+	
+	
+	</div>
+
+
+<script type="text/javascript">
+	$('.message .icon')
+	  .on('click', function() {
+	    $(this)
+	      .closest('.message')
+	      .transition('fade')
+	    ;
+	  })
+	;
+
+	setTimeout(function(){
+		// $('.message').transition('fade');
+	},5000);
+</script>    <div class="ui segment detail">
+        <div class="ui divided items">
+            <div class="item">
+                <div class="content">
+                    <div class="left floated">
+                        
+                    </div>
+                    <h1 class="ui right aligned header">
+                        صفحه ی نا معتبر، خطای 404
+                    </h1>
+                    <span></span>
+                    <div class="meta">
+                        
+                    </div>
+
+                    <div class="description">
+                        <br>
+                        <center style="font-size: 18px">
+                            <i class="icon red remove"></i>
+                            این صفحه ممکن است از گاما حذف شده و یا نامعتبر باشد.
+                        </center>
+                        <br>
+                        <br>
+                    </div>
+
+                    <!-- Bottom extra menu -->
+                    <div class="extra">
+                        <div class="right floated author">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div class="footerFeedBox">
+    <div class="ui raised stackable three cards">
+        <div class="card learnfile">
+            <div class="content">
+                <div class="header"><a href="https://gama.ir/search?type=learnfiles"><i class="icon green icon-learnfiles"></i> آخرین فایل های آموزشی</a></div>
+                <div class="description">
+                    <div class="ui relaxed list">
+                                                <div class="item">
+                                                                                        <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_235235_5d329bf0b20263e1ca5b2a4b02055a65.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/learnfiles/detail/35818" title="روخوانی، پاسخ فعالیت ها، معنی کلمات و واژه آموزی | درس 10: نام نیکو" class="header">روخوانی، پاسخ فعالیت ها، معنی کلمات و واژه آموزی |&#8230;</a>
+                                <div class="description">توسط <a href="https://gama.ir/teacher/@IMIBKH1"><b>ایمان بیات</b></a> در 25 دی</div>
+                            </div>
+                        </div>
+                                            <div class="item">
+                                                                                        <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_1000691_7489610a2f4939a3a10557104240338f.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/learnfiles/detail/35785" title="ویدیوی آموزشی مطالعات اجتماعی ششم دبستان | درس 14: برنامه ریزی برای اوقات فراغت" class="header">ویدیوی آموزشی مطالعات اجتماعی ششم دبستان | درس 14:&#8230;</a>
+                                <div class="description">توسط <a href="https://gama.ir/teacher/@elnazfallah76"><b>الناز نو فلاح</b></a> در 24 دی</div>
+                            </div>
+                        </div>
+                                            <div class="item">
+                                                                                        <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_180598_68d2817ec5cbb7b6e4361b50b67ec114.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/learnfiles/detail/35781" title="حل تمرینات املا ، فارسی و نگارش  72 تا 75 فارسی سوم | درس 9: بوی نرگس" class="header">حل تمرینات املا ، فارسی و نگارش 72 تا 75 فارسی سوم&#8230;</a>
+                                <div class="description">توسط <a href="https://gama.ir/teacher/@hediyerezania"><b>هدیه رضانیا</b></a> در 24 دی</div>
+                            </div>
+                        </div>
+                                            <div class="item">
+                                                                                        <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/778addf1ef182307f5e8b376a52e7e29.jpg" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/learnfiles/detail/35769" title="ویدیوی آموزشی گرافیک رایانه‌ای یازدهم دوره دوم متوسطه- کاردانشHistory brush , Art history" class="header">ویدیوی آموزشی گرافیک رایانه‌ای یازدهم دوره دوم متوسطه-&#8230;</a>
+                                <div class="description">توسط <a href="https://gama.ir/teacher/@s-fakori"><b>سهیلا فکوری زاده</b></a> در 24 دی</div>
+                            </div>
+                        </div>
+                                            <div class="item">
+                                                                                        <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/778addf1ef182307f5e8b376a52e7e29.jpg" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/learnfiles/detail/35767" title="ویدیوی آموزشی گرافیک رایانه‌ای ابزار Eraser" class="header">ویدیوی آموزشی گرافیک رایانه‌ای ابزار Eraser</a>
+                                <div class="description">توسط <a href="https://gama.ir/teacher/@s-fakori"><b>سهیلا فکوری زاده</b></a> در 24 دی</div>
+                            </div>
+                        </div>
+                                        </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two column grid">
+                    <div class="right aligned column">
+                        <a href="https://gama.ir/search?type=learnfiles"><i class="list icon"></i> موارد بیشتر</a>
+                    </div>
+
+                    <div class="left aligned column">
+                        <a href="https://gama.ir/learnfiles/add" class="ui circular green plus icon button" data-tooltip="ارسال فایل آموزشی">
+                            <i class="plus icon"></i>
+                        </a>
+                        <!-- <a class="ui green tiny button" href="https://gama.ir/learnfiles/add"><i class="plus icon"></i> ارسال فایل</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card question">
+            <div class="content">
+                <div class="header"><a href="https://gama.ir/search?type=question"><i class="icon orange icon-qa"></i> آخرین پرسش ها</a></div>
+                <div class="description">
+                    <div class="ui relaxed list">
+                                                <div class="item">
+                                                            <img class="ui avatar image" src="https://gama.ir/assets/image/defaultAvatar1.jpg">
+                                                        <div class="content">
+                                <a href="https://gama.ir/question/detail/55722" title="زمین شناسان برای بررسی تشکیل فسیل چه لایه هایی از زمین را مطالعه میکنند؟" class="header">زمین شناسان برای بررسی تشکیل فسیل چه لایه هایی از&#8230;</a>
+                                <div class="description">توسط <b>نازنین زهرا  نظری </b> در 25 دی</div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                                                            <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/studentAvatar_430048_9ea2bb21510418a717d9c251494d2267.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/question/detail/55708" title="آب پوست پرتقال در برموتیمول آبی چه رنگی است؟" class="header">آب پوست پرتقال در برموتیمول آبی چه رنگی است؟</a>
+                                <div class="description">توسط <b>A I D A</b> در 25 دی</div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                                                            <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_826370_27f03b6d5eacb877ba9eb0f0d9bc411b.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/question/detail/55704" title="چه عواملی موجب بالارفتن عزّت نفس در انسان می شود؟" class="header">چه عواملی موجب بالارفتن عزّت نفس در انسان می شود؟</a>
+                                <div class="description">توسط <b>رضا صدقی</b> در 25 دی</div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                                                            <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_826370_27f03b6d5eacb877ba9eb0f0d9bc411b.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/question/detail/55701" title="منظور خداوند متعال از بیان این آیه که ما همانا فرزندان آدم را کرامت دادیم، چیست؟ " class="header">منظور خداوند متعال از بیان این آیه که ما همانا فرزندان&#8230;</a>
+                                <div class="description">توسط <b>رضا صدقی</b> در 25 دی</div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                                                            <img class="ui avatar image" src="https://gama.ir/assets/../uploads/user/avatars/teacherAvatar_826370_27f03b6d5eacb877ba9eb0f0d9bc411b.png" width="100%" height="100%" onerror="this.onerror=null; this.src= ASSETS_URL + 'image/defaultAvatar1.jpg';"/>
+                                                        <div class="content">
+                                <a href="https://gama.ir/question/detail/55700" title="چرا انسان موجودی ارزشمند است؟ " class="header">چرا انسان موجودی ارزشمند است؟ </a>
+                                <div class="description">توسط <b>رضا صدقی</b> در 25 دی</div>
+                            </div>
+                        </div>
+                                            </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two column grid">
+                    <div class="right aligned column">
+                        <a href="https://gama.ir/search?type=question"><i class="list icon"></i> موارد بیشتر</a>
+                    </div>
+                    <div class="left aligned column" tooltip>
+                        <a href="https://gama.ir/question/add" class="ui circular orange plus icon button" data-tooltip="ارسال پرسش جدید">
+                            <i class="plus icon"></i>
+                        </a>
+                        <!-- <a class="ui orange tiny button" href="https://gama.ir/question/add"><i class="plus icon"></i> ارسال پرسش</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card news">
+            <div class="content">
+                <div class="red header"><a href="https://gama.ir/news"><i class="icon icon-news"></i> آخرین اخبار</a></div>
+                <div class="description">
+                    <div class="ui relaxed list">
+                                                    <div class="item">    
+                                  
+                                <img class="ui avatar image" src="https://gama.ir/assets/../uploads/news/thumbnails/f63b4d263f95a4e014dc2365f1b6ffe0.jpg" width="100%" height="100%"/>
+                                
+                                <div class="content">
+                                    <a href="https://gama.ir/news/detail/711" title="جزییات بازگشایی مدارس از ابتدای بهمن ماه" class="header">جزییات بازگشایی مدارس از ابتدای بهمن ماه</a>
+                                    <div class="description">دسته <a href="https://gama.ir/news?cat=49"><b>اخبار آموزش و پرورش</b></a> در 23 دی</div>
+                                </div>
+                            </div>
+                                                    <div class="item">    
+                                  
+                                <img class="ui avatar image" src="https://gama.ir/assets/../uploads/news/thumbnails/e4c616a940c8348948045aa7de2c080c.jpg" width="100%" height="100%"/>
+                                
+                                <div class="content">
+                                    <a href="https://gama.ir/news/detail/710" title="برگزاری سنجش پیشرفت تحصیلی ابتدایی‌ها در اردیبهشت 1400" class="header">برگزاری سنجش پیشرفت تحصیلی ابتدایی‌ها در اردیبهشت&#8230;</a>
+                                    <div class="description">دسته <a href="https://gama.ir/news?cat=49"><b>اخبار آموزش و پرورش</b></a> در 15 دی</div>
+                                </div>
+                            </div>
+                                                    <div class="item">    
+                                  
+                                <img class="ui avatar image" src="https://gama.ir/assets/../uploads/news/thumbnails/92c1e35a025f486c275407b9f6d88201.jpg" width="100%" height="100%"/>
+                                
+                                <div class="content">
+                                    <a href="https://gama.ir/news/detail/709" title="همه دانش آموزان باید امتحان غیرحضوری بدهند" class="header">همه دانش آموزان باید امتحان غیرحضوری بدهند</a>
+                                    <div class="description">دسته <a href="https://gama.ir/news?cat=49"><b>اخبار آموزش و پرورش</b></a> در 7 دی</div>
+                                </div>
+                            </div>
+                                                    <div class="item">    
+                                  
+                                <img class="ui avatar image" src="https://gama.ir/assets/../uploads/news/thumbnails/1f8e52f4f0af6e3cf476704687af6109.jpg" width="100%" height="100%"/>
+                                
+                                <div class="content">
+                                    <a href="https://gama.ir/news/detail/708" title="همه چیز درباره امتحانات نوبت اول دانش‌آموزان؛ کدام امتحانات حضوری است؟" class="header">همه چیز درباره امتحانات نوبت اول دانش‌آموزان؛ کدام&#8230;</a>
+                                    <div class="description">دسته <a href="https://gama.ir/news?cat=49"><b>اخبار آموزش و پرورش</b></a> در 24 آذر</div>
+                                </div>
+                            </div>
+                                                    <div class="item">    
+                                  
+                                <img class="ui avatar image" src="https://gama.ir/assets/../uploads/news/thumbnails/a3447b908159f04397c7092ff46abebb.jpg" width="100%" height="100%"/>
+                                
+                                <div class="content">
+                                    <a href="https://gama.ir/news/detail/707" title="نحوه دریافت آنلاین «تاییدیه تحصیلی» برای ثبت نام در دانشگاه" class="header">نحوه دریافت آنلاین «تاییدیه تحصیلی» برای ثبت نام در&#8230;</a>
+                                    <div class="description">دسته <a href="https://gama.ir/news?cat=49"><b>اخبار آموزش و پرورش</b></a> در 30 مهر</div>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two column grid">
+                    <div class="right aligned column">
+                        <a href="https://gama.ir/news"><i class="list icon"></i> موارد بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+<footer>
+	<div class="mainContainer">
+		<div class="ui stackable padded three column grid">
+			<!-- right -->
+			<div class="column center aligned">
+				<div class="ui right aligned list">
+					<div class="item">
+						<a href="https://gama.ir/"><img src="https://gama.ir/assets/image/mainlogo4.png" style="float:right;width: 200px;"/></a>
+					</div>
+					<div class="item">
+						<i class="mail icon"></i>
+						<div class="content">
+							<a href="https://gama.ir/contact">تماس با ما</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="call icon"></i>
+						<div class="content">
+							02191090966
+						</div>
+					</div>
+					<div class="item">
+						<i class="mobile icon"></i>
+						<div class="content">
+							10001883
+						</div>
+					</div>
+					<!-- <div class="item">
+						<i class="marker icon"></i>
+						<div class="content">
+							اصفهان، خیابان ارباب، کوچه 16، پلاک 25
+						</div>
+					</div> -->
+					<div class="item">
+						<i class="mail outline icon"></i>
+						<div class="content">
+							<a href="/cdn-cgi/l/email-protection#f891969e97b89f999599d6918a"><span class="__cf_email__" data-cfemail="2940474f46694e48444807405b">[email&#160;protected]</span></a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="linkify icon"></i>
+						<div class="content">
+							<a href="https://gama.ir/">Gama.ir</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- center -->
+			<div class="column center aligned">
+				<div class="ui right aligned list">
+					<div class="item">
+						<i class="icon-test"></i>
+						<div class="content">
+							<a href="https://gama.ir/search?type=test">نمونه سوال امتحانی</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="icon-learnfiles"></i>
+						<div class="content">
+							<a href="https://gama.ir/search?type=learnfiles">فیلم، پاورپوینت و محتوای آموزشی</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="icon-azmoon"></i>
+						<div class="content">
+							<a href="https://gama.ir/search?type=azmoon">آزمون آنلاین تستی</a>
+						</div>
+					</div>
+					<!-- <div class="item">
+						<i class="icon-news"></i>
+						<div class="content">
+							<a href="https://gama.ir/news">اخبار</a>
+						</div>
+					</div> -->
+					<div class="item">
+						<i class="help icon"></i>
+						<div class="content">
+							<a href="https://gama.ir/page/show/9">پرسش های متداول</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="icon info"></i>
+						<div class="content">
+							<a href="https://gama.ir/page/about">درباره ما</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="icon legal"></i>
+						<div class="content">
+							<a href="https://gama.ir/page/show/8">قوانین و مقررات</a>
+						</div>
+					</div>
+					<div class="item">
+						<i class="lock icon"></i>
+						<div class="content">
+							<a href="https://gama.ir/page/show/112">حریم خصوصی</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- left -->
+			<div class="column center aligned">
+				<div class="ui horizontal list">
+					<div class="item">
+						<img class="ui small rounded image" id='jxlzoeukoeukfukzapfu' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=18865&p=rfthmcsimcsigvkadshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt='' src='https://gama.ir/assets/image/samandehi.png'/>
+
+<!-- <img class="ui small rounded image" id = 'jxlzoeukoeukfukzapfu' style = 'cursor:pointer' onclick = 'window.open("https://logo.samandehi.ir/Verify.aspx?id=18865&p=rfthmcsimcsigvkadshw", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt = 'logo-samandehi' src = 'https://logo.samandehi.ir/logo.aspx?id=18865&p=nbpdaqgwaqgwwlbqujyn' /> -->					</div>
+					<div class="item">
+						<!-- <a target="_blank" href="https://trustseal.enamad.ir/?id=8953&amp;Code=cOpD6jMq4UuXusD2nU6U" style="float: left;height: 60px;"><img class="ui small rounded image" id='wmcsgwmdrgvlxlap' style='height: 138px;width: 133px;cursor:pointer' alt='' src='https://gama.ir/assets/image/enamad_2.png'/></a> -->
+
+<a target="_blank" href="https://trustseal.enamad.ir/?id=8953&amp;Code=cOpD6jMq4UuXusD2nU6U" style="float: left;height: 60px;"><img class="ui small rounded image" src="https://Trustseal.eNamad.ir/logo.aspx?id=8953&amp;Code=cOpD6jMq4UuXusD2nU6U" alt="" style="height: 138px;width: 133px;cursor:pointer" id="cOpD6jMq4UuXusD2nU6U"></a>
+
+<!-- <img class="ui small rounded image" id='wmcsgwmdrgvlxlap' style='height: 138px;width: 133px;cursor:pointer' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=8953&p=aqgwjzpgyncrfuix", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")' alt='' src='https://trustseal.enamad.ir/logo.aspx?id=8953&p=ukaqzpfvfujyvjym'/> -->					</div>
+				</div>
+				<div class="clearDiv"></div>
+
+				<div class="ui horizontal list socialList">
+					<div class="item"><a href="https://t.me/gamair" target="_blank"><i class="icon telegram blue"></i></a></div>
+					<div class="item"><a href="https://twitter.com/ir_gama" target="_blank"><i class="icon twitter square cornflowerblue"></i></a></div>
+					<div class="item"><a href="https://plus.google.com/113366734420484929827" target="_blank"><i class="icon google plus square red"></i></a></div>
+					<div class="item"><a href="https://www.instagram.com/gama.ir " target="_blank"><i class="icon instagram square brown"></i></a></div>
+				</div>
+
+				<div class="ui center aligned grid dlAppLink">
+					<div class="ui horizontal list">
+						<div class="item">
+							<a href="https://gama.ir/app?utm=footer&target=playstore" target="_blank">
+								<img src="https://gama.ir/assets/image/button/dlAppGooglePlay.png" id="googleplay" />
+							</a>
+						</div>
+						<div class="item">
+							<a href="https://gama.ir/app?utm=footer&target=direct" target="_blank">
+								<img src="https://gama.ir/assets/image/button/dlandroid.png" id="appstore" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- custom js scripts -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-179264009-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-179264009-1');
+</script>
+
+<!-- Matomo -->
+<!--
+<script type="text/javascript">
+  var _paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//cdn1.gamatrain.com:8443/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+-->
+
+<!-- End Matomo Code -->
+
+<!-- Rich -->
+<script type="application/ld+json">
+	{ "@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Gama",
+		"description": "دانلود و اشتراک نمونه سوالات امتحانی و محتوای آموزشی پرسش و پاسخ، رفع اشکال درسی و مشاوره تحصیلی آزمون آنلاین رایگان درس به درس و آزمون جامع علمی ماهانه درسنامه و متن کتاب درسی و راهنمای گام به گام جستجوی مدارس ابتدائی و متوسطه آموزش و پرورش امکان عضویت دانش آموزان، معلمان و مدیران",
+		"logo": "https://gama.ir/assets/image/icons/icon-128x128.png",
+		"url": "https://gama.ir",
+		"email": "info@gama.ir",
+		"telephone": "+98 31 3858 5479",
+		"sameAs": [
+		"https://plus.google.com/113366734420484929827",
+		"https://twitter.com/ir_gama",
+		"https://t.me/gamair",
+		"https://www.instagram.com/gama.ir"
+		],
+		"contactPoint": [{
+			"@type": "ContactPoint",
+			"email": "info@gama.ir",
+			"telephone": "+98 31 3858 5479",
+			"contactType": "customer service"
+		}]
+	}
+</script>
+
+<!-- GoogleAuth Script -->
+	<script src="https://apis.google.com/js/platform.js?onload=gOAuthAppStart" async defer></script>
+	<script type="text/javascript" src="https://gama.ir/assets/js/dist/general.js?ver=56"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-cbf42e81b03c0bba3cb","applicationID":"409315095","transactionName":"Z1dSbURQDxBUB0dcWV4dcVpCWA4NGjRSUlMfXF9NaVcOFlsAbEVXV1dvDQYF","queueTime":0,"applicationTime":19,"atts":"SxBRGwxKHB4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

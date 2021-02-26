@@ -1,4 +1,5 @@
-<a href="{% url 'article:index' %}" style="color:black"><h1>SiteMat8</h1></a>
+{% extends 'article/base.html' %}
+{% block content %}
 <h1>{{ post.title }}</h1>
 <h4>{{ post.PostBody }}</h4>
 
@@ -34,14 +35,18 @@ Share on Linkedin
 {% if new_comment %}
     <div>
         <p>Your comment is awaiting moderation</p>
+    </div>
 {% else %}
 <h3>
     leave a comment
 </h3>
+<div class="form-group">
 <form method="post" >
     {{ form.as_p }}
     {% csrf_token %}
-              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
-</form>
-{% endif %}
-        </div>
+    <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+    <br><br>
+    </form>
+    {% endif %}
+    </div>
+{% endblock content %}

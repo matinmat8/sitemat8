@@ -51,7 +51,6 @@
     {% endif %}
 
 
-{% block page_header %}
 {% for post in Post %}
 <a href="{% url 'article:post_detail' id=post.id %}">
     <div>
@@ -62,8 +61,7 @@
     <hr>
     <br>
 {% endfor %}
-{% endblock page_header %}
-{% endblock %}
+{% endblock content %}
 
 
 

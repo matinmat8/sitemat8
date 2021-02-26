@@ -10,7 +10,7 @@ from django.core.files.storage import FileSystemStorage
 
 
 def index(requsts):
-    return render(requsts, 'article/base.html')
+    return render(requsts, 'article/index.html')
 
 
 def Post_Article_Show_search(requsts, search=None):
@@ -58,7 +58,7 @@ def post_share(requsts, id):
             cd = form.cleaned_data
             post_url = requsts.build_absolute_uri(
                 post.get_absolute_url())
-            subject = f"{cd['name']} ecommends you reading" \
+            subject = f"{cd['name']} Recommends you reading" \
                       f"{post.title}"
             message = f"Read{post.title} at {post_url}\n\n" \
                       f"{cd['name']}\s comments: {cd['comments']}"

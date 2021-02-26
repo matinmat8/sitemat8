@@ -1,35 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}SiteMat8{% endblock %}</title>
-    <style>
-    </style>
-</head>
-<body>
-    <h1><a href="{% url 'article:index' %}">SiteMat8</a></h1>
-    {% block content %}
-    {% if user.is_authenticated %}
-        <p>Welcome {{ user }} to sitemat8!!!</p>
-    <p>If you want click here <a href="{% url 'logout' %}">logout</a></p>
-    {% else %}
-        <p><a href="{% url 'login' %}">Login</a></p>
-        <a style="flat:left; margin: 0 20px 0 0; display:block;" href="{% url 'authentication:index' %}"> signup </a></p>
+{% extends 'article/base.html' %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">made your website</h1>
+        <p class="lead">
+            All you have to do is ask our professional team to build
+            a website that cannot be built with WordPress
+            in a matter of days in a completely standard way,
+            and we will also provide free advice and support
+            to the websites we have built.
+        </p>
+        <a class="btn btn-lg bg-secondary text-light" href="{% url 'File:Upload' %}" role="button">
+            made site &raquo;
+        </a>
+    </div>
 
-    {% endif %}
-    {% endblock %}
-    <br>
-    <hr>
-
-    <a style=" display:block; " href="{% url 'article:postarticle' %}"> postarticle </a>
-    <a href="{% url 'File:Upload' %}">requests made website</a>
-    {% for message in messages %}
-        <li class="{{ message.tags }}">
-    {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
-        </li>
-{% endfor %}
-</body>
-</html>
+{% endblock page_header %}
+{% block content %}
+{% endblock content %}
