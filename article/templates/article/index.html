@@ -17,3 +17,13 @@
 {% endblock page_header %}
 {% block content %}
 {% endblock content %}
+{% block footer %}
+    <footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: #f8f9fa;">
+    © 2020 Copyright:
+    <a class="text-dark" href="{% url 'article:index' %}">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+{% endblock footer %}

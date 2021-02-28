@@ -49,4 +49,25 @@ Share on Linkedin
     </form>
     {% endif %}
     </div>
+
+{% comment %}
+<!-- LIKES
+    <br><br>
+    <hr>
+{% if user.is_authenticated %}
+  <form action="{% url 'article:like_post' post.pk %}" method="POST">
+    {% csrf_token %}
+
+    {% if post_is_liked %}
+    <button type="submit" name="PostArticle_id" value="{{post.id}}" class="btn btn-info">Unlike</button>
+    {% else %}
+    <button type="submit" name="PostArticle_id" value="{{post.id}}" class="btn btn-info">Like</button>
+    {% endif %}
+  </form>
+{% else %}
+  <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to like this article!</a><br>
+{% endif %}
+<strong class="text-secondary">{{ number_of_likes }} Like{{ number_of_likes|pluralize }}</strong>
+-->
+{% endcomment %}
 {% endblock content %}

@@ -2,15 +2,51 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import DetailView
+
 from .models import PostArticle, PostComment
 from .forms import CommentForm, PostSearch, share_post_email
 from django.contrib.postgres.search import SearchRank, SearchVector, SearchQuery
 from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
+from django.urls import reverse
 
 
 def index(requsts):
     return render(requsts, 'article/index.html')
+
+
+#def LikeView(request):
+#    post = get_object_or_404(PostArticle, id=request.POST.get('post_id'))
+#    post.likes.add(request.user)
+#    return HttpResponseRedirect(reverse('article:post_datail', args=[str(pk)]))
+
+
+#def LikeView(request, pk):
+#    post = get_object_or_404(PostArticle, id=request.POST.get('PostArticle_id'))
+#    if post.likes.filter(id=request.user.id).exists():
+#        post.likes.remove(request.user)
+#    else:
+#        post.likes.add(request.user)
+#
+#    return HttpResponseRedirect(reverse('article:post_detail', args=[str(pk)]))
+
+
+#class BlogPostDetailView(DetailView):
+#    model = PostArticle
+    # template_name = MainApp/BlogPost_detail.html
+    # context_object_name = 'object'
+
+#    def get_context_data(self, **kwargs):
+#        data = super().get_context_data(**kwargs)
+
+#        likes_connected = get_object_or_404(PostArticle, id=self.kwargs['pk'])
+#        liked = False
+#        if likes_connected.likes.filter(id=self.request.user.id).exists():
+#            liked = True
+#        data['number_of_likes'] = likes_connected.number_of_likes()
+#        data['post_is_liked'] = liked
+#        return data
 
 
 def Post_Article_Show_search(requsts, search=None):
