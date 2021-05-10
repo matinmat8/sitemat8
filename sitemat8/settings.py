@@ -41,11 +41,9 @@ INSTALLED_APPS = [
     # third_party_apps
     'bootstrap4',
     'article',
-    'Register',
     'taggit',
     'File',
     'authentication',
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
