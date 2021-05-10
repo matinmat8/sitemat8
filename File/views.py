@@ -6,11 +6,12 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from .handle_uploaded_file import handle_uploaded_file
 
+
 # Create your views here.
 
 
-#@login_required()
-#def Upload(requsts):
+# @login_required()
+# def Upload(requsts):
 #    #if requsts.method == 'POST':
 #    form = Upload_file(requsts.POST or None)
 #    if requsts.method == 'POST':
@@ -22,8 +23,8 @@ from .handle_uploaded_file import handle_uploaded_file
 #            return redirect('article:index')
 #    return render(requsts, 'File/Upload.html', {'form': form})
 
-#@login_required()
-#def Uploads(request):
+# @login_required()
+# def Uploads(request):
 #    form = Upload_file(request.POST or None)
 #    if form.is_valid():
 #        new_item = Upload_File(File=request.FILES)
@@ -32,10 +33,9 @@ from .handle_uploaded_file import handle_uploaded_file
 #        new_item.save()
 #        messages.success(request, 'your form upload successfully!!')
 #        return redirect('article:index')
-    #else:
-    #    return render(request, 'File/Upload.html', {'form': form})
+# else:
+#    return render(request, 'File/Upload.html', {'form': form})
 #    return render(request, 'File/Upload.html', {'form' : form})
-
 
 
 def Show_Upload(request):
@@ -57,7 +57,7 @@ def Upload(request):
             subject = f"{cd['name']} project for this user {new_item.user} want you build website for him" \
                       f"{cd['name']} and this is BudgetAmount {cd['BudgetAmount']}"
             message = f"this is project name{Upload_File.name} for this user:{new_item.user} this is email for this " \
-                      f"project and user{cd['email']} and this is url for example project{cd['example']}"\
+                      f"project and user{cd['email']} and this is url for example project{cd['example']}" \
                       f"this is file for this project{cd['File']} and this is phone number for user" \
                       f"{cd['phone_number']}"
             send_mail(subject,
@@ -68,4 +68,4 @@ def Upload(request):
             return redirect('article:index')
     else:
         form = Upload_file()
-    return render(request, 'File/Upload.html', {'form':form})
+    return render(request, 'File/Upload.html', {'form': form})

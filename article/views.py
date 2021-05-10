@@ -12,8 +12,8 @@ from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
 
 
-def index(requsts):
-    return render(requsts, 'article/index.html')
+def index(requests):
+    return render(requests, 'article/index.html')
 
 
 #def LikeView(request):
@@ -49,50 +49,56 @@ def index(requsts):
 #        return data
 
 
-def Post_Article_Show_search(requsts, search=None):
+def Post_Article_Show_search(requests):
     Post = PostArticle.published.all()
     form = PostSearch()
+    context = {'Post': Post, 'form': form}
+    return render(requests, "article/postarticle.html", context)
+
+
+def search_in_post(requests, search=None):
+    Post = PostArticle.published.all()
     results = []
-    form = PostSearch(requsts.GET or None)
-    if 'search' in requsts.GET:
-        form = PostSearch(requsts.GET)
+    form = PostSearch(requests.GET or None)
+    if 'search' in requests.GET:
+        form = PostSearch(requests.GET)
         if form.is_valid():
             search = form.cleaned_data['search']
             results = Post.annotate(Search=SearchVector('title', 'PostBody'
                                                         ), ).filter(Search=SearchQuery(search))
 
-    context = {'Post': Post, 'form': form, 'search': search, 'results': results}
-    return render(requsts, "article/postarticle.html", context)
+    context = {'form': form, 'search': search, 'results': results}
+    return render(requests, "article/search_post.html", context)
 
 
-def Post_detail(requsts, id=None):
+def Post_detail(requests, id=None):
     template_name = 'article/detail.html'
     post = get_object_or_404(PostArticle, id=id)
     comments = post.comments.filter(active=True)
     new_comment = None
-    if requsts.method == 'POST':
-        form = CommentForm(data=requsts.POST)
+    if requests.method == 'POST':
+        form = CommentForm(data=requests.POST)
         if form.is_valid():
             new_comment = form.save(commit=False)
             new_comment.post = post
             new_comment.save()
     else:
         form = CommentForm()
-    return render(requsts, template_name, {'post': post,
+    return render(requests, template_name, {'post': post,
                                            'comments': comments,
                                            'form': form,
                                            'new_comment': new_comment})
 
 
-def post_share(requsts, id):
+def post_share(requests, id):
     post = get_object_or_404(PostArticle, id=id, status='published')
     sent = False
-    form = share_post_email(requsts.POST or None)
-    if requsts.method == 'POST':
+    form = share_post_email(requests.POST or None)
+    if requests.method == 'POST':
 
         if form.is_valid():
             cd = form.cleaned_data
-            post_url = requsts.build_absolute_uri(
+            post_url = requests.build_absolute_uri(
                 post.get_absolute_url())
             subject = f"{cd['name']} Recommends you reading" \
                       f"{post.title}"
@@ -104,17 +110,17 @@ def post_share(requsts, id):
                       [cd['to']])
             sent = True
 
-    return render(requsts, 'article/share.html', {'post': post, 'form': form, 'sent': sent})
+    return render(requests, 'article/share.html', {'post': post, 'form': form, 'sent': sent})
 
 
-def upload(requsts):
-    if requsts.method == 'POST':
-        uploaded_file = requsts.FILES['file']
+def upload(requests):
+    if requests.method == 'POST':
+        uploaded_file = requests.FILES['file']
         fs = FileSystemStorage()
         fs.save(uploaded_file.name, uploaded_file)
 
-    return render(requsts, 'article/upload.html')
+    return render(requests, 'article/upload.html')
 
 
-def register(requsts):
-    return render(requsts, 'article/registration.html')
+def register(requests):
+    return render(requests, 'article/registration.html')
