@@ -13,7 +13,19 @@
 {% block title %}<title>post_article</title>{% endblock %}
 
 <br>
+{% block page_header %}
+
+    <div class="form-group">
+        <form method="get" action="{% url 'article:search' %}">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary float-right">search</button>
+            <br><br>
+        </form>
+    </div>
+{% endblock page_header %}
 {% block content %}
+
 {% if search %}
     <h1>posts {{ search }}</h1>
     <h3>
@@ -30,16 +42,8 @@
     {% empty %}
         <p>Nothing found</p>
     {% endfor %}
-    <p><a href="{% url 'article:post_search' %}">again search</a></p>
-    {% else %}
-    <div class="form-group">
-        <form method="get">
-            {{ form.as_p }}
-            {% csrf_token %}
-            <!--<label for="exampleInputSearch">Search</label>-->
-            <!--<input type="submit" value="Search">-->
-        </form>
-    </div>
+    <p><a href="{% url 'article:postarticle' %}">again search</a></p>
+    {% endif %}
 
 <!--<form>
   <div class="form-group">
@@ -48,20 +52,19 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>-->
-    {% endif %}
 
 
 {% for post in Post %}
-<a href="{% url 'article:post_detail' id=post.id %}">
-    <div>
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.PostBody }}</p>
+    <div class="card bg-light" style="width: auto; background_color: #f5f5ef; box-shadow:4px 3px #f2f2f2">
+        <img class="card-img-top" src="media/Firefox_wallpaper.png"
+             height="auto" width="auto"
+             alt="Card image cap">
+        <br>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        <div class="card-body">
+            <p class="card-text">{{ post.PostBody|truncatewords:65 }}</p>
+        </div>
     </div>
-</a>
-    <hr>
-    <br>
+<br><br>
 {% endfor %}
 {% endblock content %}
-
-
-

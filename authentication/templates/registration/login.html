@@ -4,10 +4,13 @@
 {% endblock page_header %}
 
 {% block content %}
-  <form method="post" class="form-control">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary  btn-lg" >Login</button>
-    <p>Don't have an account? Create One <a href="{% url 'authentication:index' %}"> here </a></p>
-  </form>
+  <div class="form-group">
+    <form method="post" class="center">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary  btn-lg" >Login</button>
+      <p>Don't have an account? Create One <a href="{% url 'authentication:index' %}"> here </a></p>
+      <p><a href="{% url 'authentication:password_reset' %}"> do you forgot password? </a></p>
+    </form>
+  </div>
 {% endblock content %}

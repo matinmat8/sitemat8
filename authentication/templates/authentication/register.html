@@ -1,9 +1,14 @@
 {% extends 'article/base.html' %}
-
+{% block page_header %}
+    <h3 class="display-5">Register in SiteMat8</h3>
+{% endblock page_header %}
 {% block content %}
+<div class="form-group">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-primary btn-lg" type="submit"> Sign Up </button>
 </form>
+</div>
+<br><br><hr>
 {% endblock content %}

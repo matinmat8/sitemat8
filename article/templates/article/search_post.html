@@ -1,0 +1,50 @@
+{% extends 'article/base.html' %}
+<style>
+
+</style>
+{% block page_header %}
+    <div class="form-group">
+        <form method="get">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary float-right">search</button>
+            <!--<button class="btn btn-lg bg-secondary text-light float-right" type="submit">Search &#8627</button>
+            -->
+            <br><br>
+        </form>
+    </div>
+{% endblock page_header %}
+
+{% block content %}
+    {% if search %}
+        <h1>posts {{ search }}</h1>
+        <h3>
+            {% with results.count as total_results %}
+                Found {{ total_results }} result{{ total_results|pluralize }}
+            {% endwith %}
+        </h3>
+        <br>
+        {% for post in results %}
+            <div class="card bg-light" style="width: auto; background_color: #f5f5ef; box-shadow:4px 3px #f2f2f2">
+                <img class="card-img-top" src="media/Firefox_wallpaper.png"
+                     height="auto" width="auto"
+                     alt="Card image cap">
+                <br>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <div class="card-body">
+                    <p class="card-text">{{ post.PostBody|truncatewords:65 }}</p>
+                </div>
+            </div>
+            <br><br>
+
+        {% comment %}
+            {{ # post.body|markdown|truncatewords_html:15 # }}
+        {% endcomment %}
+        {% empty %}
+            <p>Nothing found</p>
+        {% endfor %}
+        <!--<p><a href="{% comment %}{% url 'article:postarticle' %}{% endcomment %}">again search</a></p>-->
+    {% endif %}
+{% endblock content %}
+
+                <img class="card-img-top" src="Firefox_wallpaper.png">

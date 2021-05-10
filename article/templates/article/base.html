@@ -18,7 +18,7 @@
       </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light mb-4 border">
              <a class="navbar-brand" href="{% url 'article:index' %}">SiteMat8</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -56,11 +56,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
-
                 {% endif %}
             </ul>
         </div>
     </nav>
+    <br><br><br>
     {% if messages %}
         <div id=mainAlertMessage class="alert alert-success alert @message.CssClassName alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
