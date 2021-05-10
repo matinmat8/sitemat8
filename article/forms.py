@@ -7,13 +7,13 @@ from .models import PostComment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = PostComment
-        fields = ('name', 'email', 'body')
+        fields = ('body', 'name', 'email')
 
-        #def __init__(self, *args, **kwargs):
-        #    super().__init__(*args, **kwargs)
-        #    self.fields[name].widget.attrs.update({'class': 'form-control'})
-        #    self.fields[email].widget.attrs.update({'class': 'form-control'})
-        #   self.fields[body].widget.attrs.update({'class': 'form-control'})
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['body'].widget.attrs.update({'class': 'form-control'})
 
         #widgets = {
          #   'name': forms.TextInput(attrs={'class': 'form-control'}),
@@ -27,7 +27,7 @@ class PostSearch(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['search'].widget.attrs.update({'class': 'form-control', 'exampleInputEmail1': 'search in posts'})
+        self.fields['search'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Search in Posts'})
 
 
 class share_post_email(forms.Form):

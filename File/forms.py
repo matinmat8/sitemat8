@@ -23,21 +23,11 @@ class Upload_file(forms.ModelForm):
                                                                                                     'file'})
         self.fields['example'].widget.attrs.update({'class': 'form-control', 'placeholder': 'If you want a specific '
                                                                                             'design, you can enter '
-                                                                                            'the page address'}) 
+                                                                                            'the page address'})
         self.fields['phone_number'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Enter your phone '
-                                                                                                 'number'}) 
+                                                                                                 'number'})
         self.fields['BudgetAmount'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Enter your '
                                                                                                  'BudgetAmount'})
-        self.fields['File'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Upload your file about '
-                                                                                         'project'})
-
-
-
-
-
-       # def __init__(self, *args, **kwargs):
-        #    super().__init__(*args, **kwargs)
-         #   self.fields['name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email address'})
-
-
-
+        self.fields['File'].widget.attrs.update({'class': 'form-control form-control-lg', 'placeholder': 'Upload your '
+                                                                                                         'file about '
+                                                                                                         'project'})
