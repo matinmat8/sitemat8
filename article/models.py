@@ -15,6 +15,7 @@ class PublishedManager(models.Manager):
 class PostArticle(models.Model):
     STATUS_CHOICES = (('draft', 'Draft'), ('published', 'Published'),)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Posts')
+    image_field = models.ImageField(upload_to='media', height_field=None, width_field=None, max_length=100)
     title = models.CharField(max_length=100)
     slug = models.CharField(max_length=250, unique_for_date='publish')
     PostBody = models.TextField()
@@ -22,7 +23,7 @@ class PostArticle(models.Model):
     update = models.DateField(auto_now=True)
     publish = models.DateField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    likes = models.ManyToManyField(User, related_name='like_post')
+    #likes = models.ManyToManyField(User, related_name='like_post')
 
     tags = TaggableManager()
 
@@ -39,8 +40,9 @@ class PostArticle(models.Model):
         return reverse('article:post_detail',
                        kwargs={"id":self.id})
 
-    def number_of_likes(self):
-        return self.likes.count()
+    #def number_of_likes(self):
+    #    return self.likes.count()
+
 
 class PostComment(models.Model):
     post = models.ForeignKey(PostArticle, on_delete=models.CASCADE, related_name='comments')
