@@ -23,6 +23,7 @@ urlpatterns = [
     path('feed/', LatestPostsFeed(), name='Post_Feed'),
     path('sitemaps.xml', sitemap, {'sitemaps': sitemaps},
          name=' django.contrib.sitemaps.views.sitemap'),
+    path('post_search', views.search_in_post, name='search'),
     #path('like/<int:pk>/', views.LikeView, name='like_post'),
 ]
 
