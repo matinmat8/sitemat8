@@ -19,7 +19,6 @@ urlpatterns = [
     path('<int:id>/share/',
          views.post_share, name='post_share'),
     path('upload/', views.upload, name='upload'),
-    path('SignUp/', views.register, name='register'),
     path('feed/', LatestPostsFeed(), name='Post_Feed'),
     path('sitemaps.xml', sitemap, {'sitemaps': sitemaps},
          name=' django.contrib.sitemaps.views.sitemap'),
