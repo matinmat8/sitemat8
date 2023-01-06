@@ -81,12 +81,11 @@ WSGI_APPLICATION = 'sitemat8.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sitemat8',
-        'USER': 'matinmat8',
-        'PASSWORD': 'if MatinMat8',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mysitemat8db',
+        'USER': 'storemat8user',
+        'PASSWORD': 'MatinMat8',
         'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
 
