@@ -8,7 +8,7 @@ app_name = "File"
 
 urlpatterns = [
     path('upload/', views.Upload, name="Upload"),
-    path('Show/', views.Show_Upload, name='Show'),
+    path('show/', views.show_upload, name='Show'),
 ]
 
 if settings.DEBUG:
