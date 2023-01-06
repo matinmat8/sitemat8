@@ -1,16 +1,6 @@
-from django.contrib.auth.models import UserManager, User
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 from .forms import Sign_Up_Form
-
-
-#def authentication(requsts):
-#    username = username.POST
-
-
-def mat(requests):
-    return render(requests, 'authentication/mat.html')
 
 
 def index(request):
